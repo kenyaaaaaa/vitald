@@ -10,7 +10,7 @@ const products = [
   },
   {
     imageFile: "05.jpg",
-    title: "リング往復回転（揺動）装置<",
+    title: "リング往復回転（揺動）装置",
     brief: "リング部品を規定回数、規定時間往復回転させる装置。",
   },
   {
@@ -65,7 +65,6 @@ const title = css`
     text-align: center;
     ::before {
       display: block;
-      padding-left: 1.2rem;
       text-align: center;
       letter-spacing: 0.4rem;
       content: "PRODUCT";
