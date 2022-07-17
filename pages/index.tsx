@@ -9,11 +9,8 @@ import Head from "next/head";
 import SetFillHeight from "../components/styles";
 import { css } from "@emotion/react";
 import type { NextPage } from "next";
-// import useMedia from "use-media";
-// const Home: NextPage = () => {
-// const isWide = useMedia({ minWidth: "768px" });
+
 // return <>{isWide ? <DesktopIndex /> : <MobileIndex />}</>;
-// };
 
 const Home: NextPage = () => {
   SetFillHeight();

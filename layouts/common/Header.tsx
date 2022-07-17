@@ -3,28 +3,32 @@ import BurgerButton from "../../components/BurgerButton";
 import Navigation from "./Navigation";
 import Logo from "./Logo";
 import { css } from "@emotion/react";
+import { useQueryContext } from "../../components/utils/MediaQuery";
+import { useContext } from "react";
 
 const Header = () => {
-  const useToggle = (initialValue = false) => {
-    const [state, setState] = useState(initialValue);
-    const toggle = () => setState((prevState) => !prevState);
-    return [state, toggle] as const;
-  };
-  const [isBurgerOpen, setBurgerOpen] = useToggle(false);
-  //　↓これでよくね？
-  // setBurgerOpen(!isBurgerOpen)
-
+  const [isBurgerOpen, setBurgerOpen] = useState(false);
+  const isWide = useQueryContext;
+  console.log("aaa");
+  console.log(isWide);
+  console.log("aaa");
   return (
     <>
-      {isBurgerOpen && <div css={overlay} onClick={setBurgerOpen}></div>}
+      {isBurgerOpen && (
+        <div css={overlay} onClick={() => setBurgerOpen(!isBurgerOpen)}></div>
+      )}
+      {/* {isWide ? (
+        <></>
+      ) : ( */}
       <header>
         <Logo />
         <BurgerButton
           isBurgerOpen={isBurgerOpen}
-          setBurgerOpen={setBurgerOpen}
+          setBurgerOpen={() => setBurgerOpen(!isBurgerOpen)}
         />
         <Navigation isBurgerOpen={isBurgerOpen} />
       </header>
+      {/* )} */}
     </>
   );
 };

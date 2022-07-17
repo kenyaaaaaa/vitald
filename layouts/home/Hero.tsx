@@ -22,13 +22,23 @@ const Hero = () => {
 };
 
 const heroImg = css`
-  background: url(/images/bg-sample.jpg) no-repeat center/cover;
+  background: url(/images/hero.jpg) no-repeat center/cover;
   position: relative;
   min-height: calc(var(--vh, 1vh) * 100);
   ::before {
     content: "";
     min-height: calc(var(--vh, 1vh) * 100);
-    background-color: rgba(1, 4, 27, 0.7);
+    background: linear-gradient(
+      180deg,
+      rgba(69, 31, 25, 0.6),
+      rgba(1, 4, 27, 0.8) 100%
+    );
+    /* background: linear-gradient(
+      180deg,
+      rgba(1, 4, 27, 0.3),
+      rgba(1, 4, 27, 0.8) 100%
+    ); */
+    /* background-color: rgba(0, 0, 0, 0.7); */
     position: absolute;
     top: 0;
     left: 0;

@@ -6,6 +6,7 @@ type Props = {
 };
 
 const BurgerButton = ({ isBurgerOpen, setBurgerOpen }: Props) => {
+  console.log(isBurgerOpen);
   return (
     <button
       onClick={setBurgerOpen}
@@ -56,14 +57,14 @@ const hamburger = css`
 const active = css`
   transform: translateX(0);
   span {
-    &:nth-child(1) {
+    &:nth-of-type(1) {
       top: 0.6rem;
       transform: rotate(45deg);
     }
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       opacity: 0;
     }
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       top: -0.5rem;
       transform: rotate(-45deg);
     }

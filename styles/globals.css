@@ -32,10 +32,6 @@ ul {
   list-style: none;
 }
 
-/* input, button, select, textarea {
-  -webkit-appearance: none;
-} */
-
 body {
   font-size: 1.4rem;
   line-height: 2;
@@ -45,11 +41,6 @@ body {
     "Hiragino Sans", Meiryo, sans-serif;
 }
 
-/* #__next {
-  margin: 0 auto;
-  max-width: 1200px;
-} */
-
 a {
   color: inherit;
   text-decoration: none;
@@ -58,36 +49,6 @@ a {
 * {
   box-sizing: border-box;
 }
-
-/* h1,span {
-    font-size: 2.2rem;
-    line-height: 1.3;
-}
-h2,span {
-    font-size: 1.8rem;
-    line-height: 1.3;
-} */
-
-/* @media screen and (max-width: 768px) {
-    body{
-    line-height: 2;
-    }
-    h1,span {
-        font-size: 2.4rem;
-    }
-    h2,span {
-        font-size: 1.9rem;
-    }
-} */
-
-/* @media screen and (min-width: 769px){   
-  .pc { display:inline; }
-  .sp { display:none; }
-}
-@media screen and (max-width: 768px){   
-  .pc { display:none; }
-  .sp { display:inline; }
-} */
 
 @media (max-width: 768px) {
   h1 {

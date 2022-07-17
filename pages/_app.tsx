@@ -1,15 +1,13 @@
-// import '../styles/normalize.css'
-// import '../styles/destyle.css'
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-// import { ChakraProvider } from '@chakra-ui/react'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { MediaQueryProvider } from "../components/utils/MediaQuery";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    // <ChakraProvider>
+    <MediaQueryProvider>
       <Component {...pageProps} />
-    /* </ChakraProvider> */
-  )
+    </MediaQueryProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
