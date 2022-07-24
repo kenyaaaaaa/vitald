@@ -40,8 +40,8 @@ const heroImg = css`
     min-height: calc(var(--vh, 1vh) * 100);
     background: linear-gradient(
       180deg,
-      hsla(10, 40%, 20%, 0.6),
-      hsla(240, 100%, 5%, 0.8)
+      hsla(10, 40%, 20%, 0.5),
+      hsla(240, 60%, 5%, 0.7)
     );
     position: absolute;
     top: 0;
@@ -50,6 +50,7 @@ const heroImg = css`
     display: block;
   }
   ${mqLarge} {
+    background: url(/images/hero_pc.png) no-repeat center/cover;
     min-height: 600px;
     ::before {
       min-height: 600px;
