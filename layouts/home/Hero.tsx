@@ -65,6 +65,7 @@ const heroMsg = css`
   bottom: 0;
   transform: translateY(-55%);
   h1 {
+    font-size: 2.6rem;
     color: white;
     line-height: 1.4;
     font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E",
