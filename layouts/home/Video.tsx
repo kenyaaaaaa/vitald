@@ -1,28 +1,35 @@
 import { css } from "@emotion/react";
 import VideoCard from "./VideoCard";
+import ReadMore from "../../components/ReadMore";
 
 const videoIds = ["4XxmlgdYH1Y", "kaH6sePO1EQ", "y66GE4Zj0S4", "eOUsEipTaSA"];
 const Video = () => {
   return (
-    <section css={container}>
-      <div css={title}>
-        <h1>動画で見る</h1>
-      </div>
+    <div css={wrapper}>
+      <section css={container}>
+        <div css={title}>
+          <h1>動画で見る</h1>
+        </div>
 
-      {videoIds.map((videoId, index) => (
-        <VideoCard videoId={videoId} key={index} />
-      ))}
+        {videoIds.map((videoId, index) => (
+          <VideoCard videoId={videoId} key={index} />
+        ))}
 
-      <div css={readMore}>
-        <a href="">その他の動画を見る・</a>
-      </div>
-    </section>
+        <ReadMore bgColor={"whitesmoke"} text={"その他の動画を見る"} />
+      </section>
+    </div>
   );
 };
+
+const wrapper = css`
+  background-color: whitesmoke;
+`;
 
 const container = css`
   padding: 4rem 3rem 20rem 3rem;
   background-color: whitesmoke;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const title = css`

@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 
 const VideoCard = ({ videoId }: { videoId: string }) => {
   return (
-    <section css={cardWrap}>
+    <section css={cardWrapper}>
       <iframe
         width="315px"
         height="175px"
@@ -16,7 +16,7 @@ const VideoCard = ({ videoId }: { videoId: string }) => {
   );
 };
 
-const cardWrap = css`
+const cardWrapper = css`
   text-align: center;
   margin-bottom: 3rem;
 `;

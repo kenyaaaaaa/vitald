@@ -9,10 +9,10 @@ type Props = {
 
 const ProductCard = ({ imageFile, title, brief }: Props) => {
   return (
-    <article css={cardWrap}>
+    <article css={cardWrapper}>
       <a href="">
         <div css={card}>
-          <div css={imageWrap}>
+          <div css={imageWrapper}>
             <Image src={`/images/${imageFile}`} width="315px" height="175px" />
           </div>
           <div css={desc}>
@@ -25,7 +25,7 @@ const ProductCard = ({ imageFile, title, brief }: Props) => {
   );
 };
 
-const cardWrap = css`
+const cardWrapper = css`
   margin-bottom: 3rem;
 `;
 
@@ -35,7 +35,7 @@ const card = css`
   box-shadow: 1px 1px 10px gainsboro;
 `;
 
-const imageWrap = css`
+const imageWrapper = css`
   position: relative;
   line-height: normal;
   font-size: 0;

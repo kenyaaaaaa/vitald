@@ -1,17 +1,16 @@
 import Logo from "./Logo";
 import Image from "next/image";
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
+import { mqLarge } from "../../components/utils/style";
 
-const Navigation = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
-  // const classNames = clsx(styles.nav, { [styles.active]: isBurgerOpen });
-
+const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
   return (
     <nav css={[nav, isBurgerOpen ? active : ""]}>
-      <Logo />
+      <Logo isScrolledY={undefined} bgColor={undefined} color={"black"} />
       <ul>
         <li>
           <a href="">
-            <div css={iconWrap}>
+            <div css={iconWrapper}>
               <Image src="/icons/gear.png" width="26px" height="26px" />
             </div>
             業務内容
@@ -19,7 +18,7 @@ const Navigation = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
         </li>
         <li>
           <a href="">
-            <div css={iconWrap}>
+            <div css={iconWrapper}>
               <Image src="/icons/robotic-hand.png" width="26px" height="26px" />
             </div>
             製作実績
@@ -27,7 +26,7 @@ const Navigation = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
         </li>
         <li>
           <a href="">
-            <div css={iconWrap}>
+            <div css={iconWrapper}>
               <Image src="/icons/building.png" width="26px" height="26px" />
             </div>
             会社情報
@@ -35,7 +34,7 @@ const Navigation = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
         </li>
         <li>
           <a href="">
-            <div css={iconWrap}>
+            <div css={iconWrapper}>
               <Image src="/icons/conversation.png" width="26px" height="26px" />
             </div>
             よくある質問
@@ -43,7 +42,7 @@ const Navigation = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
         </li>
         <li>
           <a href="">
-            <div css={iconWrap}>
+            <div css={iconWrapper}>
               <Image src="/icons/email.png" width="26px" height="26px" />
             </div>
             お問い合わせ
@@ -55,37 +54,44 @@ const Navigation = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
 };
 
 const nav = css`
-  visibility: hidden;
+  ${mqLarge} {
+    display: none;
+  }
   opacity: 0;
   width: 100%;
   position: fixed;
-  box-shadow: 1px 1px 20px dimgray;
   ul {
-    padding-top: 8rem;
-    background-color: #f2f0ed;
+    padding-top: 7.5rem;
+    background-color: hsla(35, 20%, 90%, 1);
+    background-color: hsla(0, 0%, 95%, 1);
+
     text-align: center;
     li {
       display: flex;
-      height: 5.7rem;
+      height: 5.6rem;
       justify-content: center;
       align-items: center;
       font-weight: bold;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       border-bottom: 1px solid white;
       &:last-child {
         color: white;
-        background: linear-gradient(90deg, #e57b65 0%, #e48967 50%);
+        background: linear-gradient(
+          90deg,
+          hsla(10, 70%, 65%) 0%,
+          hsla(28, 70%, 65%) 100%
+        );
       }
       a {
         width: 100%;
         display: block;
-        line-height: 5.7rem;
+        line-height: 5.6rem;
       }
     }
   }
 `;
 
-const iconWrap = css`
+const iconWrapper = css`
   position: relative;
   display: inline;
   left: -0.7rem;
@@ -99,4 +105,4 @@ const active = css`
   // transition: .8s ease-out;
   // -webkit-transition: -webkit-transform all .2s;
 `;
-export default Navigation;
+export default MobileNav;

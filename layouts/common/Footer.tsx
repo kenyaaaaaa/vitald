@@ -71,8 +71,6 @@ const footer = css`
   }
 `;
 
-const company = css``;
-
 const contact = css`
   margin-top: 2rem;
 `;

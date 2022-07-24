@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { mqLarge } from "./utils/style";
 
 type Props = {
   isBurgerOpen: boolean;
@@ -20,10 +21,15 @@ const BurgerButton = ({ isBurgerOpen, setBurgerOpen }: Props) => {
 };
 
 const hamburger = css`
+  ${mqLarge} {
+    display: none;
+  }
   z-index: 1000;
   position: fixed;
-  top: 1rem;
+  top: 1.5rem;
+  background-color: whitesmoke;
   background-color: #e57b58;
+  background-color: hsl(10, 70%, 65%);
   border-radius: 100px;
   right: 2rem;
   width: 4.2rem;
@@ -35,6 +41,7 @@ const hamburger = css`
   span {
     width: 100%;
     height: 0.15rem;
+    background-color: black;
     background-color: white;
     position: relative;
     transition: ease 0.3s;

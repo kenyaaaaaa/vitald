@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import ProductCard from "./ProductCard";
+import ReadMore from "../../components/ReadMore";
 
 const products = [
   {
@@ -30,30 +31,33 @@ const products = [
 
 const Product = () => {
   return (
-    <section css={container}>
-      <div css={title}>
-        <h1>これまでの実績</h1>
-      </div>
-      {products.map((product, index) => (
-        <ProductCard
-          key={index}
-          imageFile={product.imageFile}
-          title={product.title}
-          brief={product.brief}
-        />
-      ))}
-
-      <div css={readMore}>
-        <a href="">その他の実績を見る・</a>
-      </div>
-    </section>
+    <div css={wrapper}>
+      <section css={container}>
+        <div css={title}>
+          <h1>これまでの実績</h1>
+        </div>
+        {products.map((product, index) => (
+          <ProductCard
+            key={index}
+            imageFile={product.imageFile}
+            title={product.title}
+            brief={product.brief}
+          />
+        ))}
+        <ReadMore bgColor={"white"} text={"その他の実績を見る"} />
+      </section>
+    </div>
   );
 };
+const wrapper = css`
+  background-color: white;
+`;
 
 const container = css`
   padding: 4rem 3rem 5rem 3rem;
-  background-color: white;
+  max-width: 1200px;
   color: #1d2087;
+  margin: 0 auto;
 `;
 
 const title = css`
@@ -70,23 +74,6 @@ const title = css`
       content: "PRODUCT";
       font-size: 2.4rem;
     }
-  }
-`;
-
-const readMore = css`
-  border: 1px solid #1d2087;
-  border-radius: 3px;
-  height: 4.2rem;
-  display: flex;
-  margin: 5rem auto 0 auto;
-  text-align: center;
-  background-color: white;
-  a {
-    color: #1d2087;
-    display: block;
-    width: 100%;
-    line-height: 4.2rem;
-    font-weight: bold;
   }
 `;
 

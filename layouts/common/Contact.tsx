@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 
 const Contact = () => {
   return (
-    <section css={wrap}>
+    <section css={wrapper}>
       <div css={contact}>
         <div css={phone}>
           <h3>お電話でのお問い合わせ</h3>
@@ -19,7 +19,7 @@ const Contact = () => {
   );
 };
 
-const wrap = css`
+const wrapper = css`
   position: relative;
 `;
 
