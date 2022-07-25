@@ -33,6 +33,7 @@ const card = css`
   text-align: center;
   background-color: whitesmoke;
   box-shadow: 1px 1px 10px gainsboro;
+  width: 315px;
 `;
 
 const imageWrapper = css`
@@ -42,11 +43,12 @@ const imageWrapper = css`
   ::before {
     z-index: 1;
     content: "";
+    /* width: 315px; */
     background-color: rgba(46, 59, 146, 0.05);
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
   }
 `;
@@ -56,6 +58,11 @@ const desc = css`
   color: rgb(77, 76, 76);
   h2 {
     background-color: whitesmoke;
+    font-size: 1.4rem;
+    /* font-size: 14px; */
+  }
+  p {
+    font-size: 1.2rem;
   }
 `;
 

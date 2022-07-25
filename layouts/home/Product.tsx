@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import ProductCard from "./ProductCard";
 import ReadMore from "../../components/ReadMore";
+import { mqLarge } from "../../components/utils/style";
 
 const products = [
   {
@@ -29,22 +30,53 @@ const products = [
 // <h2>マスコットロボット「フッピィ」</h2>
 // <p>首を左右に振り、両手足を上下に可動させることができる。3種類の音声出力も可能
 
+// type IConditionalWrapperProps = {
+//   condition: boolean;
+//   wrapper: (children: React.ReactNode) => JSX.Element;
+//   children: React.ReactNode;
+// };
+
+// const ConditionalWrapper = ({
+//   condition,
+//   wrapper,
+//   children,
+// }: IConditionalWrapperProps) => {
+//   return <>{condition ? wrapper(children) : children}</>;
+// };
+
+function chunk<T extends any[]>(arr: T, size: number) {
+  return arr.reduce(
+    (newarr, _, i) => (i % size ? newarr : [...newarr, arr.slice(i, i + size)]),
+    [] as T[][]
+  );
+}
+
 const Product = () => {
   return (
     <div css={wrapper}>
       <section css={container}>
-        <div css={title}>
-          <h1>これまでの実績</h1>
-        </div>
-        {products.map((product, index) => (
-          <ProductCard
-            key={index}
-            imageFile={product.imageFile}
-            title={product.title}
-            brief={product.brief}
-          />
-        ))}
-        <ReadMore bgColor={"white"} text={"その他の実績を見る"} />
+        <>
+          <div css={title}>
+            <h1>これまでの実績</h1>
+          </div>
+          {chunk(products, 3).map((element: any) => {
+            return (
+              <div css={cardWrapper}>
+                {element.map((product: any, index: number) => {
+                  return (
+                    <ProductCard
+                      key={index}
+                      imageFile={product.imageFile}
+                      title={product.title}
+                      brief={product.brief}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+          <ReadMore bgColor={"white"} text={"その他の実績を見る"} />
+        </>
       </section>
     </div>
   );
@@ -62,7 +94,7 @@ const container = css`
 
 const title = css`
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
   h1 {
     font-size: 1.2rem;
     letter-spacing: 0.4rem;
@@ -74,6 +106,12 @@ const title = css`
       content: "PRODUCT";
       font-size: 2.4rem;
     }
+  }
+`;
+const cardWrapper = css`
+  ${mqLarge} {
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
