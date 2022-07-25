@@ -94,7 +94,7 @@ const container = css`
 
 const title = css`
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   h1 {
     font-size: 1.2rem;
     letter-spacing: 0.4rem;
