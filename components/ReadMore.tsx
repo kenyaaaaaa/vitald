@@ -32,6 +32,7 @@ const readMore = (bgColor: string) => css`
     width: 100%;
     line-height: 4.2rem;
     font-weight: bold;
+    color: hsl(240, 70%, 20%);
     // pcのみホバー処理
     ${mqLarge} {
       ::before {
@@ -56,7 +57,6 @@ const readMore = (bgColor: string) => css`
         width: 100%;
         height: 100%;
         position: relative;
-        color: hsl(240, 70%, 20%);
         z-index: 2;
         transition: 0.2s;
         :hover {

@@ -23,8 +23,21 @@ const products = [
   },
   {
     imageFile: "02.jpg",
-    title: "夢ロボ（上海万博展示作品）",
-    brief: "垂直の壁を昇降することができる人型のロボット。",
+    title: "夢ロボ",
+    brief:
+      "垂直の壁を昇降することができる人型のロボット。上海万博に展示された。",
+  },
+  {
+    imageFile: "04.jpg",
+    title: "タッチパネル多点プッシュ検査装置",
+    brief:
+      "タッチ信号の正常な出力を検査するため、スクリーンの任意の点を正確かつ高速にプッシュする装置。",
+  },
+  {
+    imageFile: "03.jpg",
+    title: "5軸雲台",
+    brief:
+      "動く被写体の中心部を常時捕捉できるように、3台のカメラの向きや傾きを自動制御する。",
   },
 ];
 // <h2>マスコットロボット「フッピィ」</h2>
@@ -111,7 +124,9 @@ const title = css`
 const cardWrapper = css`
   ${mqLarge} {
     display: flex;
+    /* justify-content: space-around; */
     justify-content: space-between;
+    margin-bottom: 2rem;
   }
 `;
 

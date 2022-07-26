@@ -16,7 +16,7 @@ const Service = () => {
               <Image src={`/images/draft3D.jpg`} width="300px" height="200px" />
             </div>
           </div>
-          <div css={right}>
+          <div>
             <div css={title}>
               <h1>
                 あらゆるニーズに対応した
@@ -53,7 +53,7 @@ const container = css`
   margin: 0 auto;
   max-width: 1200px;
   ${mqLarge} {
-    padding-top: 7rem;
+    padding: 7rem 1rem 5rem;
   }
 `;
 
@@ -70,6 +70,8 @@ const imgWrapper = css`
   display: none;
   ${mqLarge} {
     display: block;
+    width: 50%;
+    /* margin-right: 5rem; */
   }
 `;
 
@@ -91,11 +93,6 @@ const draft3dImg = css`
   }
 `;
 
-const right = css`
-  ${mqLarge} {
-    padding-left: 45rem;
-  }
-`;
 const title = css`
   display: flex;
 

@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
+import { mqLarge } from "../../components/utils/style";
 
 type Props = {
   imageFile: string;
@@ -13,7 +14,7 @@ const ProductCard = ({ imageFile, title, brief }: Props) => {
       <a href="">
         <div css={card}>
           <div css={imageWrapper}>
-            <Image src={`/images/${imageFile}`} width="315px" height="175px" />
+            <Image src={`/images/${imageFile}`} width="320px" height="180px" />
           </div>
           <div css={desc}>
             <h2>{title}</h2>
@@ -26,43 +27,43 @@ const ProductCard = ({ imageFile, title, brief }: Props) => {
 };
 
 const cardWrapper = css`
+  position: relative;
   margin-bottom: 3rem;
+  ${mqLarge} {
+    :hover img {
+      transform: scale(1.1);
+    }
+  }
 `;
 
 const card = css`
-  text-align: center;
-  background-color: whitesmoke;
-  box-shadow: 1px 1px 10px gainsboro;
-  width: 315px;
+  width: 320px;
 `;
 
 const imageWrapper = css`
-  position: relative;
+  box-shadow: 6px 6px 20px gainsboro;
   line-height: normal;
   font-size: 0;
-  ::before {
-    z-index: 1;
-    content: "";
-    /* width: 315px; */
-    background-color: rgba(46, 59, 146, 0.05);
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* width: 100%; */
-    height: 100%;
+  img {
+    transform: scale(1);
+    transition: transform 0.2s;
   }
 `;
 
 const desc = css`
-  padding: 1rem 1rem;
+  padding: 1rem 0rem;
   color: rgb(77, 76, 76);
   h2 {
-    background-color: whitesmoke;
     font-size: 1.4rem;
-    /* font-size: 14px; */
+    ${mqLarge} {
+      font-size: 1.2rem;
+    }
   }
   p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    ${mqLarge} {
+      font-size: 1.1rem;
+    }
   }
 `;
 
