@@ -1,32 +1,43 @@
 import { css } from "@emotion/react";
 import ReadMore from "../../components/ReadMore";
 import { mqLarge } from "../../components/utils/style";
+import Image from "next/image";
 
 const Service = () => {
   return (
     <div css={wrapper}>
       <section css={container}>
-        <div css={title}>
-          <h1>
-            {/* 機械設計、製作 */}
-            あらゆるニーズに対応した
-            <br />
-            機械の設計製作
-            {/* <span>✕</span> */}
-          </h1>
-        </div>
-        <div css={description}>
-          <p>
-            ご希望に合わせて、自動機械・試験装置・ロボットを設計製作いたします。
-            <br />
-            人が行うには危険な作業を機械に任せたい、
-            <br css={[pcBreak, spMT]} />
-            自動化装置を取り入れることにより生産性の向上を図りたい、
-            <br css={pcBreak} />
-            人を楽しませるロボットを作りたい等々、
-            <br css={pcBreak} />
-            機械化／自動化による問題解決は当社にお任せください。
-          </p>
+        <div css={wrapperInner}>
+          <div css={imgWrapper}>
+            <div css={draft2dImg}>
+              <Image src={`/images/draft2D.jpg`} width="300px" height="200px" />
+            </div>
+            <div css={draft3dImg}>
+              <Image src={`/images/draft3D.jpg`} width="300px" height="200px" />
+            </div>
+          </div>
+          <div css={right}>
+            <div css={title}>
+              <h1>
+                あらゆるニーズに対応した
+                <br />
+                機械の設計製作
+              </h1>
+            </div>
+            <div css={description}>
+              <p>
+                ご希望に合わせて、自動機械・試験装置・ロボットを設計製作いたします。
+                <br />
+                人が行うには危険な作業を機械に任せたい、
+                <br css={[pcBreak, spMT]} />
+                自動化装置を取り入れることにより生産性の向上を図りたい、
+                <br css={pcBreak} />
+                人を楽しませるロボットを作りたい等々、
+                <br css={pcBreak} />
+                機械化／自動化による問題解決は当社にお任せください。
+              </p>
+            </div>
+          </div>
         </div>
         <ReadMore bgColor={"whitesmoke"} text={"詳細を見る"} />
       </section>
@@ -41,11 +52,52 @@ const container = css`
   padding: 4rem 3rem 5rem 3rem;
   margin: 0 auto;
   max-width: 1200px;
+  ${mqLarge} {
+    padding-top: 7rem;
+  }
 `;
 
+const wrapperInner = css`
+  ${mqLarge} {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 7rem;
+  }
+`;
+
+const imgWrapper = css`
+  display: none;
+  ${mqLarge} {
+    display: block;
+  }
+`;
+
+const draft2dImg = css`
+  ${mqLarge} {
+    position: absolute;
+    top: -13%;
+    z-index: 1;
+    opacity: 0.85;
+  }
+`;
+
+const draft3dImg = css`
+  ${mqLarge} {
+    opacity: 0.8;
+    position: absolute;
+    top: 38%;
+    left: 20%;
+  }
+`;
+
+const right = css`
+  ${mqLarge} {
+    padding-left: 45rem;
+  }
+`;
 const title = css`
   display: flex;
-  /* justify-content: center; */
 
   span {
     color: black;
@@ -56,19 +108,6 @@ const title = css`
     letter-spacing: 0.3rem;
     font-weight: 400;
     line-height: 1.5;
-    /* border-bottom: 3px solid #e57b58; */
-    /* ::before {
-      content: "";
-      left: 50%;
-      bottom: 5%;
-      background-color: #e57b58;
-      opacity: 0.7;
-      transform: translateX(-144%);
-      position: absolute;
-      display: inline-block;
-      width: 17.5rem;
-      height: 6px;
-    } */
   }
 `;
 
