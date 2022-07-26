@@ -50,15 +50,17 @@ const nav = (borderColor: string = "white") => css`
         ::before {
           content: "";
           position: absolute;
-          bottom: 0px;
+          bottom: 0;
           background: ${borderColor};
           height: 1px;
-          width: 0%;
+          width: 100%;
+          transform: scale(0, 1);
+          transform-origin: right top;
+          transition: transform 0.2s;
         }
         :hover::before {
-          left: 0;
-          transition: 0.1s ease-in;
-          width: 100%;
+          transform-origin: left top;
+          transform: scale(1, 1);
         }
       }
       :last-child a {
@@ -79,8 +81,7 @@ const nav = (borderColor: string = "white") => css`
           );
         }
         :hover::before {
-          background: black;
-          width: 0%;
+          transform: scale(0, 0);
         }
       }
     }
