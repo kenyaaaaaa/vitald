@@ -14,7 +14,7 @@ const DesktopNav = ({ isScrolledY }: Props) => {
           <a href="">業務内容</a>
         </li>
         <li>
-          <a href="">制作実績</a>
+          <a href="">製作実績</a>
         </li>
         <li>
           <a href="">会社情報</a>
