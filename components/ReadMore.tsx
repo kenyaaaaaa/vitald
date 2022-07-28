@@ -17,12 +17,12 @@ const ReadMore = ({ bgColor, text }: Props) => {
 };
 
 const readMore = (bgColor: string) => css`
-  max-width: 300px;
+  max-width: 320px;
   border: 1px solid hsl(240, 70%, 20%);
   border-radius: 3px;
   height: 4.2rem;
   display: flex;
-  margin: 4rem auto 0 auto;
+  margin: 2rem auto 0 auto;
   text-align: center;
   background-color: ${bgColor};
   position: relative;

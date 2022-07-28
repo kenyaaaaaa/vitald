@@ -4,8 +4,8 @@ const VideoCard = ({ videoId }: { videoId: string }) => {
   return (
     <section css={cardWrapper}>
       <iframe
-        width="315px"
-        height="175px"
+        width="320px"
+        height="180px"
         src={`https://www.youtube.com/embed/${videoId}`}
         title="YouTube video player"
         frameBorder="0"
@@ -18,7 +18,7 @@ const VideoCard = ({ videoId }: { videoId: string }) => {
 
 const cardWrapper = css`
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 `;
 
 export default VideoCard;

@@ -34,7 +34,7 @@ const Service = () => {
                 <br css={pcBreak} />
                 人を楽しませるロボットを作りたい等々、
                 <br css={pcBreak} />
-                機械化／自動化による問題解決は当社にお任せください。
+                機械化／自動化による問題解決は弊社にお任せください。
               </p>
             </div>
           </div>
@@ -58,11 +58,12 @@ const container = css`
 `;
 
 const wrapperInner = css`
+  margin-bottom: 4rem;
   ${mqLarge} {
     display: flex;
     justify-content: center;
     position: relative;
-    margin-bottom: 7rem;
+    margin-bottom: 9rem;
   }
 `;
 
@@ -109,7 +110,7 @@ const title = css`
 `;
 
 const description = css`
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   ${mqLarge} {
     line-height: 2;
     font-size: 1.3rem;
