@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import ProductCard from "./ProductCard";
-import ReadMore from "../../components/ReadMore";
-import { mqLarge } from "../../components/utils/style";
+import ReadMore from "../common/ReadMore";
+import { mqLarge } from "../../utils/style";
 
 const products = [
   {

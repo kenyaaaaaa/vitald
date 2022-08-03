@@ -1,29 +1,40 @@
-import { css, keyframes } from "@emotion/react";
-import { mqLarge } from "../../components/utils/style";
+import { css } from "@emotion/react";
+import Link from "next/link";
+import { mqLarge } from "../../utils/style";
 
 type Props = {
-  isScrolledY: boolean;
+  isHomeAndTop: boolean;
 };
 
-const DesktopNav = ({ isScrolledY }: Props) => {
-  const borderColor = isScrolledY ? "black" : "white";
+const DesktopNav = ({ isHomeAndTop }: Props) => {
+  const borderColor = isHomeAndTop ? "white" : "black";
   return (
     <nav css={nav(borderColor)}>
       <ul>
         <li>
-          <a href="">業務内容</a>
+          <Link href="/service">
+            <a>業務内容</a>
+          </Link>
         </li>
         <li>
-          <a href="">製作実績</a>
+          <Link href="/product">
+            <a>製作実績</a>
+          </Link>
         </li>
         <li>
-          <a href="">会社情報</a>
+          <Link href="/company">
+            <a>会社情報</a>
+          </Link>
         </li>
         <li>
-          <a href="">よくある質問</a>
+          <Link href="/faq">
+            <a>よくある質問</a>
+          </Link>
         </li>
         <li>
-          <a href="">お問い合わせ</a>
+          <Link href="/contact">
+            <a>お問い合わせ</a>
+          </Link>
         </li>
       </ul>
     </nav>

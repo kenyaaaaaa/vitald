@@ -1,45 +1,36 @@
 import { useEffect, useState } from "react";
-import BurgerButton from "../../components/BurgerButton";
+import BurgerButton from "./BurgerButton";
 import Logo from "./Logo";
 import { css } from "@emotion/react";
-import { mqLarge } from "../../components/utils/style";
+import { mqLarge } from "../../utils/style";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 
-const Header = () => {
+type Props = {
+  isHomeAndTop: boolean;
+};
+
+const Header = ({ isHomeAndTop }: Props) => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
-  const [isScrolledY, setScrolledY] = useState(false);
-
-  const handler = () => {
-    if (window.scrollY > 0) {
-      setScrolledY(true);
-    } else {
-      setScrolledY(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handler);
-  }, []);
 
   return (
     <>
       {isBurgerOpen && (
         <div css={overlay} onClick={() => setBurgerOpen(!isBurgerOpen)}></div>
       )}
-      <div css={[wrapper, isScrolledY && scrolledHeaderStyle]}>
+      <div css={[wrapper, isHomeAndTop ? homeAndTop : normal]}>
         <header css={header}>
           <Logo
-            isScrolledY={isScrolledY}
-            bgColor={"hsla(240, 70%, 20%, 0.8)"}
-            color={"white"}
+            isHomeAndTop={isHomeAndTop}
+            bgColor={"transparent"}
+            color={"black"}
           />
           <BurgerButton
             isBurgerOpen={isBurgerOpen}
             setBurgerOpen={() => setBurgerOpen(!isBurgerOpen)}
           />
           <MobileNav isBurgerOpen={isBurgerOpen} />
-          <DesktopNav isScrolledY={isScrolledY} />
+          <DesktopNav isHomeAndTop={isHomeAndTop} />
         </header>
       </div>
     </>
@@ -49,30 +40,38 @@ const Header = () => {
 const overlay = css`
   position: absolute;
   z-index: 100;
-  height: 120%;
+  height: 100%;
   width: 100%;
   background-color: hsla(0, 0%, 0%, 0.5);
 `;
-const scrolledHeaderStyle = css`
+const wrapper = css`
+  ${mqLarge} {
+    width: 100%;
+    transition: 0.5s;
+    z-index: 100;
+    position: fixed;
+  }
+`;
+const homeAndTop = css`
+  ${mqLarge} {
+    background-color: transparent;
+    color: white;
+  }
+`;
+const normal = css`
   ${mqLarge} {
     background-color: hsla(0, 0%, 100%, 0.95);
     color: black;
-    transition: 0.5s;
     box-shadow: 0px 3px 20px -3px hsla(240, 70%, 20%, 0.3);
   }
 `;
-const wrapper = css`
-  ${mqLarge} {
-    z-index: 100;
-    background-color: transparent;
-    color: white;
-    position: fixed;
-    width: 100%;
-    transition: 0.5s;
-  }
-`;
 const header = css`
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0px 3px 20px -15px hsla(240, 70%, 20%, 0.3);
   ${mqLarge} {
+    position: relative;
     margin: 0 auto;
     max-width: 1200px;
     display: flex;

@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
-import { mqLarge } from "../../components/utils/style";
+import { mqLarge } from "../../utils/style";
 
 type Props = {
   imageFile: string;

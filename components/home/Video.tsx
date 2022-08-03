@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import VideoCard from "./VideoCard";
-import ReadMore from "../../components/ReadMore";
-import { mqLarge } from "../../components/utils/style";
+import ReadMore from "../common/ReadMore";
+import { mqLarge } from "../../utils/style";
 
 const videoIds = [
   "4XxmlgdYH1Y",

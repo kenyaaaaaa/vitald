@@ -1,5 +1,7 @@
 import { css } from "@emotion/react";
-import { mqLarge } from "./utils/style";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { mqLarge } from "../../utils/style";
 
 type Props = {
   isBurgerOpen: boolean;
@@ -7,7 +9,13 @@ type Props = {
 };
 
 const BurgerButton = ({ isBurgerOpen, setBurgerOpen }: Props) => {
-  console.log(isBurgerOpen);
+  const router = useRouter();
+  useEffect(() => {
+    router.events.on("routeChangeComplete", () => {
+      isBurgerOpen && setBurgerOpen();
+    });
+  });
+
   return (
     <button
       onClick={setBurgerOpen}

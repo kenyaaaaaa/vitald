@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { mqLarge } from "../../components/utils/style";
+import { mqLarge } from "../../utils/style";
 
 const Footer = () => {
   return (
