@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import BurgerButton from "./BurgerButton";
 import Logo from "./Logo";
 import { css } from "@emotion/react";
-import { mqLarge } from "../../utils/style";
+import { mqLarge, useScrolledYZero } from "../../utils/style";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
+import { useRouter } from "next/router";
 
-type Props = {
-  isHomeAndTop: boolean;
-};
-
-const Header = ({ isHomeAndTop }: Props) => {
+const Header = () => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
+  const isScloledYZero = useScrolledYZero();
+  const router = useRouter();
+
+  const isHomeAndTop: boolean =
+    router.pathname === "/" && isScloledYZero ? true : false;
 
   return (
     <>

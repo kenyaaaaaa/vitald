@@ -32,7 +32,7 @@ Company.getLayout = function getLayout(page: ReactElement) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div css={wrapper}>
-        <Header isHomeAndTop={false} />
+        <Header />
         <main>
           {page}
           <ContactInfo />

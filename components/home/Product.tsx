@@ -72,9 +72,9 @@ const Product = () => {
           <div css={title}>
             <h1>これまでの実績</h1>
           </div>
-          {chunk(products, 3).map((element: any) => {
+          {chunk(products, 3).map((element: any, index: number) => {
             return (
-              <div css={cardWrapper}>
+              <div css={cardWrapper} key={index}>
                 {element.map((product: any, index: number) => {
                   return (
                     <ProductCard

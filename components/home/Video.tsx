@@ -25,10 +25,10 @@ const Video = () => {
         <div css={title}>
           <h1>動画で見る</h1>
         </div>
-        {chunk(videoIds, 3).map((element: any) => {
+        {chunk(videoIds, 3).map((element: any, index: number) => {
           return (
-            <div css={cardWrapper}>
-              {element.map((videoId: any, index: number) => {
+            <div css={cardWrapper} key={index}>
+              {element.map((videoId: string, index: number) => {
                 return <VideoCard videoId={videoId} key={index} />;
               })}
             </div>

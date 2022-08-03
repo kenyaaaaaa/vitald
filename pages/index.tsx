@@ -6,14 +6,13 @@ import Video from "../components/home/Video";
 import ContactInfo from "../components/common/ContactInfo";
 import Footer from "../components/common/Footer";
 import Head from "next/head";
-import { SetFillHeight, useScrolledYZero } from "../utils/style";
+import { SetFillHeight } from "../utils/style";
 import { css } from "@emotion/react";
-import { mqLarge } from "../utils/style";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
 
 const Home: NextPageWithLayout = () => {
-  // SetFillHeight();
+  SetFillHeight();
 
   return (
     <>
@@ -26,7 +25,6 @@ const Home: NextPageWithLayout = () => {
 };
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  const isHomeAndTop: boolean = useScrolledYZero();
   return (
     <>
       <Head>
@@ -36,7 +34,7 @@ Home.getLayout = function getLayout(page: ReactElement) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div css={wrapper}>
-        <Header isHomeAndTop={isHomeAndTop} />
+        <Header />
         <main>
           {page}
           <ContactInfo />
