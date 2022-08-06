@@ -9,6 +9,62 @@ import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
 
 const FAQ: NextPageWithLayout = () => {
+  const faqData = [
+    {
+      question: "受け付けロボットは製作できますか？",
+      answer: "製作可能です。",
+    },
+    {
+      question: "人間の顔と同様なロボットの顔は製作できますか？",
+      answer:
+        "製作可能です。皮膚は特殊なゴムで質感を再現し、髪の毛、まつ毛、まゆ毛は一本ずつ植え付けます。まばたきやウインクもさせることが可能です。",
+    },
+    {
+      question: "電動雲台、旋回台に安価な既製品はありますか？",
+      answer:
+        "オーダーメイドのため、申し訳ございませんが既製品はありません。お求めの仕様が水平回転のみ、または水平と垂直で精度は不要というような場合や、複数個の発注（5台程度）の場合だと比較的安価でご提供可能になります。「安価な中国製を使っているが頻繁に故障するので国内製を検討している」というようなご要望は承りますので、お気軽にご相談ください。",
+    },
+    {
+      question: "自動機械、試験装置はどんな分野向けのものが製作可能ですか？",
+      answer:
+        "ゼロから設計するため、ほとんどの分野に対応可能です。過去の製品は企業、大学、研究所など多方面で活躍しています。詳細につきましては「製作実績」のページをご覧ください",
+    },
+    {
+      question: "自動機械、試験装置などはどの位の精度で動けますか?",
+      answer:
+        "サーボモータやステッピングモータを使えば 0.01°の精度は容易に実現可能であり、さらに高い精度で製作することも可能です。回転精度が欲しい場合は対象物をモータ軸に直接取り付け、直線精度が欲しい場合はモータとボールネジを組み合わせます。機械全体としては、様々な部品（モータ、ボールネジ、ベルト、ギア等）の組み合わせを複合した精度となります。",
+    },
+    {
+      question:
+        "モータなどを使わない、動かない治具や装置なども製作できますか？",
+      answer: "製作可能です。",
+    },
+    {
+      question: "機械、装置はどのくらいの大きさのものまで製作可能ですか?",
+      answer:
+        "大型のものでない限り問題なく、目安としては運送できるサイズであれば対応可能です。",
+    },
+    {
+      question: "設計のみの依頼もできますか?",
+      answer:
+        "設計のみのご注文も承りしております。3DCADは「IRONCAD」、2DCADは「CADPACK」を使用しており、3DデータはSTEP形式、2DデータはDWG／DXF形式で納品可能です。SOLIDWORKSとの受け渡しの際にはSTEP形式で納品を行いました。",
+    },
+    {
+      question: "Webによる打ち合わせはできますか？",
+      answer: "Webによる打ち合わせも対応しております。",
+    },
+    {
+      question: "打ち合わせの流れはどうなりますか?",
+      answer:
+        " 仕様が定まっていない場合は、まずはご相談をしながら仕様を固めていき、仕様が決まれば、「お見積り提出 → 着手 → 設計 → 製作 → 試運転 → 納入」の流れとなります。",
+    },
+    {
+      question: "納期はどの位かかりますか?",
+      answer:
+        "状況と仕様によって2か月前後から、複雑なものはそれ以上のお時間をいただく場合もございます。お急ぎの場合はご相談させていただきますので、お気軽にお問い合わせください。",
+    },
+    ,
+  ];
   return (
     <>
       <div css={wrapperInner}>
@@ -16,7 +72,27 @@ const FAQ: NextPageWithLayout = () => {
           <h1>よくある質問</h1>
           <p>FAQ</p>
         </div>
-        <div css={container}></div>
+        <div css={container}>
+          <div css={faqWrapper}>
+            {faqData.map((data: any, index: number) => {
+              return (
+                <div css={faq} key={index}>
+                  <div css={left}>
+                    <span>Q.</span>
+                  </div>
+                  <div css={right}>
+                    <div css={question}>
+                      <p>{data.question}</p>
+                    </div>
+                    <div css={answer}>
+                      <p>{data.answer}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </>
   );
@@ -43,34 +119,92 @@ FAQ.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
+const faqWrapper = css`
+  /* margin-left: 3rem; */
+  margin: 3rem auto 0 auto;
+  padding: 3rem 3rem;
+  ${mqLarge} {
+    padding: 8rem 0 8rem 0;
+    margin: 4rem auto 0 auto;
+    width: 900px;
+  }
+`;
+const faq = css`
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+  display: flex;
+  ${mqLarge} {
+  }
+`;
+const left = css`
+  span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: hsl(0, 0%, 70%);
+    /* line-height: 0.5; */
+    /* display: block; */
+  }
+  ${mqLarge} {
+    span {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+  }
+`;
+const right = css`
+  /* padding-top: 0.3rem; */
+  margin-left: 1rem;
+  ${mqLarge} {
+    margin-left: 7rem;
+  }
+`;
+const question = css`
+  p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: inline-block;
+  }
+  ${mqLarge} {
+    p {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+  }
+`;
+const answer = css`
+  p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: hsl(0, 0%, 40%);
+  }
+  ${mqLarge} {
+    p {
+      font-size: 1.2rem;
+    }
+  }
+`;
 const wrapper = css`
   position: relative;
 `;
 const wrapperInner = css`
-  position: relative;
   background-color: whitesmoke;
-  padding-top: 11rem;
-  height: 1400px;
+  padding-top: 12rem;
+  padding-bottom: 20rem;
   ${mqLarge} {
-    /* padding-bottom: 3rem; */
-    position: relative;
+    padding-top: 14rem;
   }
 `;
 const container = css`
+  background-color: white;
   ${mqLarge} {
-    position: absolute;
-    top: 24rem;
-    /* left: 0; */
-    height: 800px;
-    width: 1700px;
-    max-width: 1700px;
-    background-color: white;
+    width: 90vw;
     box-shadow: 6px 6px 20px gainsboro;
   }
 `;
 const title = css`
-  max-width: 1200px;
   margin-left: 3rem;
+  max-width: 1100px;
   p {
     font-size: 1rem;
   }

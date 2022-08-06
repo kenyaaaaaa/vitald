@@ -63,6 +63,7 @@ const homeAndTop = css`
 const normal = css`
   ${mqLarge} {
     background-color: hsla(0, 0%, 100%, 0.95);
+    /* background-color: whitesmoke; */
     color: black;
     box-shadow: 0px 3px 20px -3px hsla(240, 70%, 20%, 0.3);
   }
@@ -71,7 +72,6 @@ const header = css`
   position: absolute;
   z-index: 1000;
   width: 100%;
-  box-shadow: 0px 3px 20px -15px hsla(240, 70%, 20%, 0.3);
   ${mqLarge} {
     position: relative;
     margin: 0 auto;
