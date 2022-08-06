@@ -9,18 +9,24 @@ import { useRouter } from "next/router";
 
 const Header = () => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
-  const isScloledYZero = useScrolledYZero();
+  const isTop = useScrolledYZero();
   const router = useRouter();
 
-  const isHomeAndTop: boolean =
-    router.pathname === "/" && isScloledYZero ? true : false;
+  const isHomeAndTop: boolean = router.pathname === "/" && isTop ? true : false;
+
+  let headerStyle = normal;
+  if (isHomeAndTop) {
+    headerStyle = homeAndTop;
+  } else if (isTop) {
+    headerStyle = top;
+  }
 
   return (
     <>
       {isBurgerOpen && (
         <div css={overlay} onClick={() => setBurgerOpen(!isBurgerOpen)}></div>
       )}
-      <div css={[wrapper, isHomeAndTop ? homeAndTop : normal]}>
+      <div css={[wrapper, headerStyle]}>
         <header css={header}>
           <Logo
             isHomeAndTop={isHomeAndTop}
@@ -60,18 +66,19 @@ const homeAndTop = css`
     color: white;
   }
 `;
+const top = css`
+  background-color: whitesmoke;
+  color: black;
+`;
 const normal = css`
+  background-color: whitesmoke;
   ${mqLarge} {
     background-color: hsla(0, 0%, 100%, 0.95);
-    /* background-color: whitesmoke; */
     color: black;
     box-shadow: 0px 3px 20px -3px hsla(240, 70%, 20%, 0.3);
   }
 `;
 const header = css`
-  position: absolute;
-  z-index: 1000;
-  width: 100%;
   ${mqLarge} {
     position: relative;
     margin: 0 auto;

@@ -111,6 +111,7 @@ const title = css`
 
 const description = css`
   margin-top: 2.5rem;
+  font-size: 1.4rem;
   ${mqLarge} {
     line-height: 2;
     font-size: 1.3rem;
