@@ -153,7 +153,7 @@ const answer = css`
 const wrapper = css`
   background-color: whitesmoke;
   padding-bottom: 20rem;
-  padding-top: 2.5rem;
+  padding-top: 9rem;
   ${mqLarge} {
     padding-top: 11rem;
   }

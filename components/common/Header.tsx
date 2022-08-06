@@ -79,6 +79,9 @@ const normal = css`
   }
 `;
 const header = css`
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
   ${mqLarge} {
     position: relative;
     margin: 0 auto;

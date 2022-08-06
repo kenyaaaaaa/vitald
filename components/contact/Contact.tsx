@@ -55,7 +55,7 @@ const Contact = () => {
                 お問い合わせ内容<span>＊</span>
               </label>
               <textarea id="content" {...register("content")} />
-              <p>{data}</p>
+              {/* <p>{data}</p> */}
               <input type="submit" />
             </form>
           </div>
@@ -67,14 +67,14 @@ const Contact = () => {
 
 const formDesc = css`
   font-size: 1.2rem;
-  padding-top: 3rem;
+  padding-top: 5rem;
   ${mqLarge} {
     padding: 0;
   }
 `;
 const phoneDesc = css`
   font-size: 1.2rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
 `;
 const phoneNumber = css`
   font-size: 2rem;
@@ -103,9 +103,8 @@ const required = css`
   }
 `;
 const right = css`
-  padding: 3rem 0;
+  padding: 5rem 0;
   ${mqLarge} {
-    padding: 5rem 0;
     width: 80%;
   }
   label {
@@ -137,7 +136,7 @@ const right = css`
     height: 6rem;
   }
   input[type="submit"] {
-    /* appearance: none; */
+    appearance: none;
     background-color: hsl(10, 70%, 65%);
     color: white;
     border: none;
@@ -145,6 +144,9 @@ const right = css`
     display: block;
     cursor: pointer;
     width: 100%;
+    padding: 1rem;
+    letter-spacing: 0.5rem;
+    margin-top: 4rem;
     ${mqLarge} {
       width: 80%;
       border-radius: 4px;
@@ -160,7 +162,7 @@ const right = css`
 const wrapper = css`
   background-color: whitesmoke;
   padding-bottom: 20rem;
-  padding-top: 2.5rem;
+  padding-top: 9rem;
   ${mqLarge} {
     padding-top: 11rem;
   }
