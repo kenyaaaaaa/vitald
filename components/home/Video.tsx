@@ -34,9 +34,6 @@ const Video = () => {
             </div>
           );
         })}
-        {/* {videoIds.map((videoId, index) => (
-          <VideoCard videoId={videoId} key={index} />
-        ))} */}
 
         <ReadMore bgColor={"whitesmoke"} text={"その他の動画を見る"} />
       </section>

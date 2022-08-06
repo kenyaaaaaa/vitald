@@ -2,27 +2,16 @@ import Header from "../components/common/Header";
 import ContactInfo from "../components/common/ContactInfo";
 import Footer from "../components/common/Footer";
 import Head from "next/head";
-import { css } from "@emotion/react";
-import { mqLarge } from "../utils/style";
 import type { ReactElement } from "react";
+import Contact from "../components/contact/Contact";
 
 import type { NextPageWithLayout } from "./_app";
 
-const Contact: NextPageWithLayout = () => {
-  return (
-    <>
-      <div css={wrapperInner}>
-        <div css={title}>
-          <h1>お問い合わせ</h1>
-          <p>Contact</p>
-        </div>
-        <div css={container}></div>
-      </div>
-    </>
-  );
+const ContactPage: NextPageWithLayout = () => {
+  return <Contact />;
 };
 
-Contact.getLayout = function getLayout(page: ReactElement) {
+ContactPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
       <Head>
@@ -31,7 +20,7 @@ Contact.getLayout = function getLayout(page: ReactElement) {
         <meta name="robots" content="noindex"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div css={wrapper}>
+      <div>
         <Header />
         <main>
           {page}
@@ -43,48 +32,4 @@ Contact.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-const wrapper = css`
-  position: relative;
-`;
-const wrapperInner = css`
-  position: relative;
-  background-color: whitesmoke;
-  padding-top: 11rem;
-  height: 1400px;
-  ${mqLarge} {
-    /* padding-bottom: 3rem; */
-    position: relative;
-  }
-`;
-const container = css`
-  ${mqLarge} {
-    position: absolute;
-    top: 24rem;
-    /* left: 0; */
-    height: 800px;
-    width: 1700px;
-    max-width: 1700px;
-    background-color: white;
-    box-shadow: 6px 6px 20px gainsboro;
-  }
-`;
-const title = css`
-  max-width: 1200px;
-  margin-left: 3rem;
-  p {
-    font-size: 1rem;
-  }
-  ${mqLarge} {
-    margin: 0 auto;
-    h1 {
-      /* font-size: 2.7rem; */
-    }
-    p {
-      color: black;
-      font-size: 1.2rem;
-      text-align: left;
-    }
-  }
-`;
-
-export default Contact;
+export default ContactPage;
