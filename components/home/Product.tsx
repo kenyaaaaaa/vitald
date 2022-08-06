@@ -3,7 +3,13 @@ import ProductCard from "./ProductCard";
 import ReadMore from "../common/ReadMore";
 import { mqLarge } from "../../utils/style";
 
-const products = [
+type Product = {
+  imageFile: string;
+  title: string;
+  brief: string;
+};
+
+const products: Product[] = [
   {
     imageFile: "01.jpg",
     title: "人間型ロボット「インファノイド」",
@@ -43,20 +49,6 @@ const products = [
 // <h2>マスコットロボット「フッピィ」</h2>
 // <p>首を左右に振り、両手足を上下に可動させることができる。3種類の音声出力も可能
 
-// type IConditionalWrapperProps = {
-//   condition: boolean;
-//   wrapper: (children: React.ReactNode) => JSX.Element;
-//   children: React.ReactNode;
-// };
-
-// const ConditionalWrapper = ({
-//   condition,
-//   wrapper,
-//   children,
-// }: IConditionalWrapperProps) => {
-//   return <>{condition ? wrapper(children) : children}</>;
-// };
-
 function chunk<T extends any[]>(arr: T, size: number) {
   return arr.reduce(
     (newarr, _, i) => (i % size ? newarr : [...newarr, arr.slice(i, i + size)]),
@@ -75,7 +67,7 @@ const Product = () => {
           {chunk(products, 3).map((element: any, index: number) => {
             return (
               <div css={cardWrapper} key={index}>
-                {element.map((product: any, index: number) => {
+                {element.map((product: Product, index: number) => {
                   return (
                     <ProductCard
                       key={index}

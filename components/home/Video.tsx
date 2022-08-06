@@ -3,7 +3,7 @@ import VideoCard from "./VideoCard";
 import ReadMore from "../common/ReadMore";
 import { mqLarge } from "../../utils/style";
 
-const videoIds = [
+const videoIds: string[] = [
   "4XxmlgdYH1Y",
   "kaH6sePO1EQ",
   "y66GE4Zj0S4",

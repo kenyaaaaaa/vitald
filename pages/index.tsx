@@ -11,7 +11,7 @@ import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
 
-const Home: NextPageWithLayout = () => {
+const HomePage: NextPageWithLayout = () => {
   SetFillHeight();
 
   return (
@@ -24,7 +24,7 @@ const Home: NextPageWithLayout = () => {
   );
 };
 
-Home.getLayout = function getLayout(page: ReactElement) {
+HomePage.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
       <Head>
@@ -49,4 +49,4 @@ const wrapper = css`
   position: relative;
 `;
 
-export default Home;
+export default HomePage;
