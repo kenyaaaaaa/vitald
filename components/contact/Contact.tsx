@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import { mqLarge } from "../../utils/style";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Contact = () => {
   interface FromInputs {
@@ -9,16 +10,17 @@ const Contact = () => {
     company: string;
     division: string;
     mail: string;
-    phone: string;
+    tel: string;
     content: string;
   }
+  // const axios = require("axios").default;
 
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<FromInputs>();
-  const [data, setData] = useState("");
+  // const [data, setData] = useState("");
 
   return (
     <>
@@ -34,17 +36,27 @@ const Contact = () => {
               <br />
               フォームからお問合せください。
             </p>
-            <p css={phoneDesc}>お電話でも承ります。お気軽にご連絡ください。</p>
-            <a href="tel:06-6978-2299" css={phoneNumber}>
-              06-6978-2299
-            </a>
+            <p css={telDesc}>お電話でも承ります。お気軽にご連絡ください。</p>
+            <div>
+              <a href="tel:06-6978-2299" css={telNumber}>
+                06-6978-2299
+              </a>
+            </div>
           </div>
           <div css={right}>
             <p css={required}>
               <span>＊</span>必須
             </p>
             <form
-              onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}
+              onSubmit={handleSubmit((data) => {
+                // setData(JSON.stringify(data))
+                axios
+                  .post("/.netlify/functions/sendMail", data)
+                  .then((res) => {
+                    console.log(res);
+                  })
+                  .catch(() => {});
+              })}
             >
               <label htmlFor="name">
                 お名前<span>＊</span>
@@ -82,15 +94,15 @@ const Contact = () => {
               {errors.mail?.type === "pattern" && (
                 <p css={errorMessage}>メールアドレスの形式が正しくありません</p>
               )}
-              <label htmlFor="phone">
+              <label htmlFor="tel">
                 電話番号<span>＊</span>
               </label>
               <input
                 type="tel"
-                id="phone"
-                {...register("phone", { required: true })}
+                id="tel"
+                {...register("tel", { required: true })}
               />
-              {errors.phone && (
+              {errors.tel && (
                 <p css={errorMessage}>電話番号を入力してください</p>
               )}
               <label htmlFor="content">
@@ -127,11 +139,12 @@ const formDesc = css`
     padding: 0;
   }
 `;
-const phoneDesc = css`
+const telDesc = css`
   font-size: 1.2rem;
   margin-top: 3rem;
 `;
-const phoneNumber = css`
+const telNumber = css`
+  display: inline-block;
   font-size: 2.2rem;
   font-weight: bold;
   ${mqLarge} {
