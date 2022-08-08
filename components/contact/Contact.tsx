@@ -4,7 +4,20 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Contact = () => {
-  const { register, handleSubmit } = useForm();
+  interface FromInputs {
+    name: string;
+    company: string;
+    division: string;
+    mail: string;
+    phone: string;
+    content: string;
+  }
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FromInputs>();
   const [data, setData] = useState("");
 
   return (
@@ -36,25 +49,60 @@ const Contact = () => {
               <label htmlFor="name">
                 お名前<span>＊</span>
               </label>
-              <input id="name" {...register("name")} />
+              <input id="name" {...register("name", { required: true })} />
+              {errors.name && (
+                <p css={errorMessage}>お名前を入力してください</p>
+              )}
+
               <label htmlFor="company">
                 貴社名<span>＊</span>
               </label>
-              <input id="company" {...register("company")} />
+              <input
+                id="company"
+                {...register("company", { required: true })}
+              />
+              {errors.company && (
+                <p css={errorMessage}>貴社名を入力してください</p>
+              )}
               <label htmlFor="division">部署名</label>
               <input id="division" {...register("division")} />
               <label htmlFor="mail">
                 メールアドレス<span>＊</span>
               </label>
-              <input id="mail" {...register("mail")} />
+              <input
+                id="mail"
+                {...register("mail", {
+                  required: true,
+                  pattern: /[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+/,
+                })}
+              />
+              {errors.mail?.type === "required" && (
+                <p css={errorMessage}>メールアドレスを入力してください</p>
+              )}
+              {errors.mail?.type === "pattern" && (
+                <p css={errorMessage}>メールアドレスの形式が正しくありません</p>
+              )}
               <label htmlFor="phone">
                 電話番号<span>＊</span>
               </label>
-              <input id="phone" {...register("phone")} />
+              <input
+                type="tel"
+                id="phone"
+                {...register("phone", { required: true })}
+              />
+              {errors.phone && (
+                <p css={errorMessage}>電話番号を入力してください</p>
+              )}
               <label htmlFor="content">
                 お問い合わせ内容<span>＊</span>
               </label>
-              <textarea id="content" {...register("content")} />
+              <textarea
+                id="content"
+                {...register("content", { required: true })}
+              />
+              {errors.content && (
+                <p css={errorMessage}>お問い合わせ内容を入力してください</p>
+              )}
               {/* <p>{data}</p> */}
               <input type="submit" />
             </form>
@@ -65,6 +113,13 @@ const Contact = () => {
   );
 };
 
+const errorMessage = css`
+  font-size: 1rem;
+  color: red;
+  padding-bottom: 1rem;
+  ${mqLarge} {
+  }
+`;
 const formDesc = css`
   font-size: 1.2rem;
   padding-top: 5rem;
@@ -150,6 +205,9 @@ const right = css`
     ${mqLarge} {
       width: 80%;
       border-radius: 4px;
+    }
+    :hover {
+      background-color: hsl(12, 90%, 65%);
     }
   }
   ${mqLarge} {
