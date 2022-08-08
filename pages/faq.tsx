@@ -6,6 +6,7 @@ import type { ReactElement } from "react";
 import Faq from "../components/faq/Faq";
 
 import type { NextPageWithLayout } from "./_app";
+import { css } from "@emotion/react";
 
 const FaqPage: NextPageWithLayout = () => {
   return <Faq />;
@@ -20,7 +21,7 @@ FaqPage.getLayout = function getLayout(page: ReactElement) {
         <meta name="robots" content="noindex"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
+      <div css={wrapper}>
         <Header />
         <main>
           {page}
@@ -31,5 +32,10 @@ FaqPage.getLayout = function getLayout(page: ReactElement) {
     </>
   );
 };
+
+// メニュー表示時のoverlayのため
+const wrapper = css`
+  position: relative;
+`;
 
 export default FaqPage;

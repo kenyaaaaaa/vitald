@@ -168,8 +168,11 @@ const container = css`
 const title = css`
   margin-left: 3rem;
   max-width: 1100px;
+
   p {
     font-size: 1rem;
+    line-height: 0.8;
+    letter-spacing: 2px;
   }
   ${mqLarge} {
     margin: 0 auto;

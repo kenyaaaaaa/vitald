@@ -6,6 +6,7 @@ import type { ReactElement } from "react";
 import Contact from "../components/contact/Contact";
 
 import type { NextPageWithLayout } from "./_app";
+import { css } from "@emotion/react";
 
 const ContactPage: NextPageWithLayout = () => {
   return <Contact />;
@@ -20,12 +21,9 @@ ContactPage.getLayout = function getLayout(page: ReactElement) {
         <meta name="robots" content="noindex"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
+      <div css={wrapper}>
         <Header />
-        <main>
-          {page}
-          <ContactInfo />
-        </main>
+        <main>{page}</main>
         <Footer />
       </div>
     </>
@@ -33,3 +31,8 @@ ContactPage.getLayout = function getLayout(page: ReactElement) {
 };
 
 export default ContactPage;
+
+// メニュー表示時のoverlayのため
+const wrapper = css`
+  position: relative;
+`;

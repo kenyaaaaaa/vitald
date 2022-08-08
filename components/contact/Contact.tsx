@@ -77,10 +77,10 @@ const phoneDesc = css`
   margin-top: 3rem;
 `;
 const phoneNumber = css`
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
   ${mqLarge} {
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
   }
 `;
 const left = css`
@@ -108,7 +108,7 @@ const right = css`
     width: 80%;
   }
   label {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
   }
   span {
@@ -161,7 +161,7 @@ const right = css`
 
 const wrapper = css`
   background-color: whitesmoke;
-  padding-bottom: 20rem;
+  padding-bottom: 7rem;
   padding-top: 9rem;
   ${mqLarge} {
     padding-top: 11rem;
@@ -185,6 +185,8 @@ const title = css`
   max-width: 1100px;
   p {
     font-size: 1rem;
+    line-height: 0.8;
+    letter-spacing: 2px;
   }
   ${mqLarge} {
     margin: 0 auto;

@@ -1,9 +1,12 @@
 import { css } from "@emotion/react";
+import { useRouter } from "next/router";
 import { mqLarge } from "../../utils/style";
 
 const Footer = () => {
+  const router = useRouter();
+  const isContactPage: boolean = router.pathname === "/contact";
   return (
-    <footer css={footer}>
+    <footer css={[footer, isContactPage ? paddingNarrow : paddingWide]}>
       <div css={container}>
         <div css={titleWrapper}>
           <h1>国際バイタルディバイス有限会社</h1>
@@ -50,9 +53,21 @@ const Footer = () => {
   );
 };
 
+const paddingNarrow = css`
+  padding-top: 7rem;
+`;
+const paddingWide = css`
+  padding-top: 44rem;
+  ${mqLarge} {
+    padding-top: 26rem;
+  }
+`;
+
 const footer = css`
   background-color: rgb(39, 37, 37);
-  padding: 44rem 3rem 5rem 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 5rem;
   color: white;
   h1 {
     font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E",
@@ -91,7 +106,9 @@ const footer = css`
   ${mqLarge} {
     display: flex;
     justify-content: center;
-    padding: 26rem 3rem 5rem 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
     ul {
       margin-right: 25rem;
       margin-top: 1rem;
