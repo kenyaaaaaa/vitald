@@ -17,7 +17,7 @@ const handler: Handler = async (event, context) => {
   const userText = `
 ${userName} 様
 
-この度はお問合せいただき、誠にありがとうございます。
+この度はお問合せいただき、ありがとうございます。
 このメールはシステムからの自動返信メールです。
 お問い合わせ内容につきましては、追って担当者よりご連絡させて頂きます。
 
@@ -60,21 +60,23 @@ Mail：contact@vitald.net
     port: 465,
     auth: {
       user: "fromkenya.121@gmail.com",
-      pass: "hkxdiqjutjszowzx",
+      pass: process.env.GOOGLE_MAIL_PASS,
     },
   });
 
-  const toUser = await transporter.sendMail({
-    from: `${userFrom}`,
-    to: `${userMail}`,
-    subject: `${userSubject}`,
-    text: `${userText}`,
-  });
+  // const toUser = await transporter.sendMail({
+  //   from: `${userFrom}`,
+  //   to: `${userMail}`,
+  //   subject: `${userSubject}`,
+  //   text: `${userText}`,
+  // });
 
   const adminMail = "fromkenya.121@gmail.com";
-  const adminSubject = "サイトから問い合わせがありました！！！";
+  const adminSubject = "サイトから問い合わせがありました✨";
   const adminFrom = "【国際バイタルディバイス有限会社】HP";
   const adminText = `
+お問合せフォームより下記の内容が届いています。
+
 お名前：　${userName}
 貴社名：　${userCompany}
 部署名：　${userDivision}
@@ -84,13 +86,14 @@ Mail：contact@vitald.net
 ${content}
 `;
 
-  const toAdmin = await transporter.sendMail({
-    from: `${adminFrom}`,
-    to: `${adminMail}`,
-    subject: `${adminSubject}`,
-    text: `${adminText}`,
-  });
+  // const toAdmin = await transporter.sendMail({
+  //   from: `${adminFrom}`,
+  //   to: `${adminMail}`,
+  //   subject: `${adminSubject}`,
+  //   text: `${adminText}`,
+  // });
 
+  await new Promise((resolve) => setTimeout(resolve, 4000));
   return {
     statusCode: 200,
     body: JSON.stringify(event.body),

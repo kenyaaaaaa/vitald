@@ -3,8 +3,12 @@ import { mqLarge } from "../../utils/style";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import BeatLoader from "react-spinners/BeatLoader";
+import { motion } from "framer-motion";
 
 const Contact = () => {
+  const [isLoading, setLoading] = useState(false);
+
   interface FromInputs {
     name: string;
     company: string;
@@ -13,7 +17,6 @@ const Contact = () => {
     tel: string;
     content: string;
   }
-  // const axios = require("axios").default;
 
   const {
     register,
@@ -49,13 +52,16 @@ const Contact = () => {
             </p>
             <form
               onSubmit={handleSubmit((data) => {
-                // setData(JSON.stringify(data))
+                setLoading(true);
                 axios
                   .post("/.netlify/functions/sendMail", data)
                   .then((res) => {
+                    setLoading(false);
                     console.log(res);
                   })
-                  .catch(() => {});
+                  .catch(() => {
+                    setLoading(false);
+                  });
               })}
             >
               <label htmlFor="name">
@@ -115,8 +121,28 @@ const Contact = () => {
               {errors.content && (
                 <p css={errorMessage}>お問い合わせ内容を入力してください</p>
               )}
-              {/* <p>{data}</p> */}
-              <input type="submit" />
+              <button>
+                {isLoading ? (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    送信中...
+                  </motion.span>
+                ) : (
+                  <span>送信</span>
+                )}
+              </button>
+              <div css={loaderWrapper}>
+                <BeatLoader
+                  color="hsl(12, 90%, 65%)"
+                  loading={isLoading}
+                  // cssOverride={{}}
+                  // size={150}
+                  css={loader}
+                />
+              </div>
             </form>
           </div>
         </div>
@@ -125,6 +151,17 @@ const Contact = () => {
   );
 };
 
+const loaderWrapper = css`
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  ${mqLarge} {
+    width: 80%;
+  }
+`;
+const loader = css`
+  position: absolute;
+`;
 const errorMessage = css`
   font-size: 1rem;
   color: red;
@@ -203,24 +240,27 @@ const right = css`
   textarea {
     height: 6rem;
   }
-  input[type="submit"] {
+  button {
     appearance: none;
     background-color: hsl(10, 70%, 65%);
-    color: white;
     border: none;
-    margin-top: 3rem;
-    display: block;
+    margin-top: 2rem;
     cursor: pointer;
     width: 100%;
     padding: 1rem;
-    letter-spacing: 0.5rem;
-    margin-top: 4rem;
+    letter-spacing: 0.4rem;
+    border-radius: 4px;
     ${mqLarge} {
+      padding: 0.6rem;
       width: 80%;
-      border-radius: 4px;
     }
     :hover {
       background-color: hsl(12, 90%, 65%);
+    }
+    span {
+      font-size: 1.2rem;
+      color: white;
+      /* display: inline-block; */
     }
   }
   ${mqLarge} {
