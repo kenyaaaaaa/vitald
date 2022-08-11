@@ -93,7 +93,7 @@ ${content}
   //   text: `${adminText}`,
   // });
 
-  await new Promise((resolve) => setTimeout(resolve, 4000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return {
     statusCode: 200,
     body: JSON.stringify(event.body),

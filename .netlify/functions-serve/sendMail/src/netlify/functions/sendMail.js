@@ -9600,7 +9600,7 @@ Mail\uFF1Acontact@vitald.net
 \u304A\u554F\u3044\u5408\u308F\u305B\u5185\u5BB9\uFF1A
 ${content}
 `;
-  await new Promise((resolve) => setTimeout(resolve, 4e3));
+  await new Promise((resolve) => setTimeout(resolve, 3e3));
   return {
     statusCode: 200,
     body: JSON.stringify(event.body)

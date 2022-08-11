@@ -3038,6 +3038,11 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
+disable-scroll@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/disable-scroll/-/disable-scroll-0.6.0.tgz#ff0ae8d4c9d395e65842583eefb9313d046f462a"
+  integrity sha512-6bTAS16sz+3X7Pib8d5dAO9xo5MvqDZvSlzuhW/2c3NhUvbPNqnsV3JttvnqgNCDEgWUgNWJYM392iUmLETDxA==
+
 doctrine@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/doctrine/-/doctrine-2.1.0.tgz"
@@ -7232,6 +7237,13 @@ react-hook-form@^7.34.0:
   version "7.34.0"
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.34.0.tgz"
   integrity sha512-s0/TJ09NVlEk2JPp3yit1WnMuPNBXFmUKEQPulgDi9pYBw/ZmmAFHe6AXWq73Y+kp8ye4OcMf0Jv+i/qLPektg==
+
+react-hooks-use-modal@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-hooks-use-modal/-/react-hooks-use-modal-2.1.0.tgz#ec0a0f545fa421c12cbe724ece5425f34535b088"
+  integrity sha512-3/W8QigIUYfGtQcPIxxALxZDi/1Ic91qAft0QTEO88ZRO8WgvE3CjsXsoEBvRE8HXBYZtUDf2dTCoQs6ZdCBPQ==
+  dependencies:
+    disable-scroll "^0.6.0"
 
 react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
