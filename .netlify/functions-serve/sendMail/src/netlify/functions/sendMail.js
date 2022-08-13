@@ -9528,9 +9528,15 @@ __export(sendMail_exports, {
 });
 var import_nodemailer = __toESM(require_nodemailer());
 var handler = async (event, context) => {
+  console.log(event.headers);
+  const ip = event.headers["x-forwarded-for"];
+  const s = /(:?^| )34\.126\.184\.144, [\d.]+$/;
+  console.log(ip);
+  console.log(ip == null ? void 0 : ip.match(s));
   if (!event.body) {
     return { statusCode: 500 };
   }
+  console.log(event.body);
   const formInput = JSON.parse(event.body);
   const userName = formInput.name;
   const userCompany = formInput.company;
@@ -9600,7 +9606,7 @@ Mail\uFF1Acontact@vitald.net
 \u304A\u554F\u3044\u5408\u308F\u305B\u5185\u5BB9\uFF1A
 ${content}
 `;
-  await new Promise((resolve) => setTimeout(resolve, 3e3));
+  await new Promise((resolve) => setTimeout(resolve, 2e3));
   return {
     statusCode: 200,
     body: JSON.stringify(event.body)

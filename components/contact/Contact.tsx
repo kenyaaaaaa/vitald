@@ -1,10 +1,10 @@
 import { css } from "@emotion/react";
 import { mqLarge } from "../../utils/style";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import axios from "axios";
 import BeatLoader from "react-spinners/BeatLoader";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useModal } from "react-hooks-use-modal";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ const Contact = () => {
   const [isLoading, setLoading] = useState(false);
 
   const [Modal, open, close, isOpen] = useModal("__next", {
-    preventScroll: true,
+    preventScroll: false,
     closeOnOverlayClick: false,
   });
 
@@ -132,34 +132,36 @@ const Contact = () => {
               {errors.content && (
                 <p css={errorMessage}>お問い合わせ内容を入力してください</p>
               )}
-              <button>
-                {isLoading ? (
+              {isLoading ? (
+                <button disabled={true}>
                   <motion.span
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    送信中...
+                    送信中
                   </motion.span>
-                ) : (
+                  <BeatLoader color="white" loading={isLoading} size={4} />
+                </button>
+              ) : (
+                <button>
                   <span>送信</span>
-                )}
-              </button>
-              <div css={loaderWrapper}>
-                <BeatLoader
-                  color="hsl(12, 90%, 65%)"
-                  loading={isLoading}
-                  // cssOverride={{}}
-                  // size={150}
-                  css={loader}
-                />
-              </div>
+                </button>
+              )}
             </form>
           </div>
         </div>
       </div>
+      {/* <AnimatePresence> */}
       <Modal>
-        <div css={modal}>
+        <motion.div
+          // key="modal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          // exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          css={modal}
+        >
           <h1>お問い合わせありがとうございます。</h1>
           <div css={modalDescWrapper}>
             <p>確認のため、自動返信メールをお送りしております。</p>
@@ -169,11 +171,13 @@ const Contact = () => {
               近日中に弊社担当者よりご連絡いたします。
             </p>
           </div>
+          {/* <button onClick={close}>a</button> */}
           <Link href="/">
-            <a onClick={close}>ホームに戻る・</a>
+            <a>ホームに戻る・</a>
           </Link>
-        </div>
+        </motion.div>
       </Modal>
+      {/* </AnimatePresence> */}
     </>
   );
 };
@@ -216,17 +220,7 @@ const modal = css`
 const modalDescWrapper = css`
   margin-bottom: 2rem;
 `;
-const loaderWrapper = css`
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  ${mqLarge} {
-    width: 80%;
-  }
-`;
-const loader = css`
-  position: absolute;
-`;
+
 const errorMessage = css`
   font-size: 1rem;
   color: red;

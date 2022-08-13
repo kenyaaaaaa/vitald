@@ -2,9 +2,15 @@ import { Handler } from "@netlify/functions";
 import { createTransport } from "nodemailer";
 
 const handler: Handler = async (event, context) => {
+  console.log(event.headers);
+  const ip = event.headers["x-forwarded-for"];
+  const s = /(:?^| )34\.126\.184\.144, [\d.]+$/;
+  console.log(ip);
+  console.log(ip?.match(s));
   if (!event.body) {
     return { statusCode: 500 };
   }
+  console.log(event.body);
   const formInput = JSON.parse(event.body);
   const userName = formInput.name;
   const userCompany = formInput.company;
@@ -93,7 +99,7 @@ ${content}
   //   text: `${adminText}`,
   // });
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   return {
     statusCode: 200,
     body: JSON.stringify(event.body),
