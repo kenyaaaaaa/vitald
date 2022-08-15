@@ -7,7 +7,7 @@ import Link from "next/link";
 const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
   return (
     <nav css={[nav, isBurgerOpen ? active : ""]}>
-      <Link href="/">
+      <Link href="/" scroll={false}>
         <a css={logo}>
           <h1>国際バイタルディバイス有限会社</h1>
           <p>Vital Device International</p>
@@ -15,7 +15,7 @@ const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
       </Link>
       <ul>
         <li>
-          <Link href="/service">
+          <Link href="/service" scroll={false}>
             <a>
               <div css={iconWrapper}>
                 <Image src="/icons/gear.png" width="26px" height="26px" />
@@ -25,7 +25,7 @@ const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
           </Link>
         </li>
         <li>
-          <Link href="/product">
+          <Link href="/product" scroll={false}>
             <a>
               <div css={iconWrapper}>
                 <Image
@@ -39,7 +39,7 @@ const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
           </Link>
         </li>
         <li>
-          <Link href="/company">
+          <Link href="/company" scroll={false}>
             <a>
               <div css={iconWrapper}>
                 <Image src="/icons/building.png" width="26px" height="26px" />
@@ -49,7 +49,7 @@ const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
           </Link>
         </li>
         <li>
-          <Link href="/faq">
+          <Link href="/faq" scroll={false}>
             <a>
               <div css={iconWrapper}>
                 <Image
@@ -63,7 +63,7 @@ const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
           </Link>
         </li>
         <li>
-          <Link href="/contact">
+          <Link href="/contact" scroll={false}>
             <a>
               <div css={iconWrapper}>
                 <Image src="/icons/email.png" width="26px" height="26px" />

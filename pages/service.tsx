@@ -7,10 +7,16 @@ import { mqLarge } from "../utils/style";
 import type { ReactElement } from "react";
 
 import type { NextPageWithLayout } from "./_app";
+import { motion } from "framer-motion";
 
 const Service: NextPageWithLayout = () => {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ duration: 0.3 }}
+    >
       <div css={wrapperInner}>
         <div css={title}>
           <h1>業務内容</h1>
@@ -18,7 +24,7 @@ const Service: NextPageWithLayout = () => {
         </div>
         <div css={container}></div>
       </div>
-    </>
+    </motion.div>
   );
 };
 

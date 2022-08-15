@@ -172,7 +172,7 @@ const Contact = () => {
             </p>
           </div>
           {/* <button onClick={close}>a</button> */}
-          <Link href="/">
+          <Link href="/" scroll={false}>
             <a>ホームに戻る・</a>
           </Link>
         </motion.div>

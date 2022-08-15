@@ -7,9 +7,19 @@ import Faq from "../components/faq/Faq";
 
 import type { NextPageWithLayout } from "./_app";
 import { css } from "@emotion/react";
+import { motion } from "framer-motion";
 
 const FaqPage: NextPageWithLayout = () => {
-  return <Faq />;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ duration: 0.3 }}
+    >
+      <Faq />
+    </motion.div>
+  );
 };
 
 FaqPage.getLayout = function getLayout(page: ReactElement) {

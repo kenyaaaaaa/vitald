@@ -12,27 +12,27 @@ const DesktopNav = ({ isHomeAndTop }: Props) => {
     <nav css={nav(borderColor)}>
       <ul>
         <li>
-          <Link href="/service">
+          <Link href="/service" scroll={false}>
             <a>業務内容</a>
           </Link>
         </li>
         <li>
-          <Link href="/product">
+          <Link href="/product" scroll={false}>
             <a>製作実績</a>
           </Link>
         </li>
         <li>
-          <Link href="/company">
+          <Link href="/company" scroll={false}>
             <a>会社情報</a>
           </Link>
         </li>
         <li>
-          <Link href="/faq">
+          <Link href="/faq" scroll={false}>
             <a>よくある質問</a>
           </Link>
         </li>
         <li>
-          <Link href="/contact">
+          <Link href="/contact" scroll={false}>
             <a>お問い合わせ</a>
           </Link>
         </li>
