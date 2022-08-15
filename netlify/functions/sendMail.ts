@@ -1,22 +1,29 @@
 import { Handler } from "@netlify/functions";
 import { createTransport } from "nodemailer";
 
-const handler: Handler = async (event, context) => {
-  const trueOrigin = "https://jazzy-mermaid-ca196f.netlify.app";
-  const trueReferer = "https://jazzy-mermaid-ca196f.netlify.app/contact";
-  const reqMethod = event.httpMethod;
-  const reqOrigin = event.headers["origin"];
-  const reqReferer = event.headers["referer"];
+const handler: Handler = async (event, _context) => {
+  const isProdEnv = process.env.NODE_ENV === "production";
 
-  console.log(event);
-  if (
-    reqMethod !== "POST" ||
-    reqOrigin !== trueOrigin ||
-    reqReferer !== trueReferer ||
-    !event.body
-  ) {
+  if (!event.body) {
     return { statusCode: 400 };
   }
+
+  if (isProdEnv) {
+    const trueOrigin = "https://jazzy-mermaid-ca196f.netlify.app";
+    const trueReferer = "https://jazzy-mermaid-ca196f.netlify.app/contact";
+    const reqMethod = event.httpMethod;
+    const reqOrigin = event.headers["origin"];
+    const reqReferer = event.headers["referer"];
+    if (
+      !event.body ||
+      reqMethod !== "POST" ||
+      reqOrigin !== trueOrigin ||
+      reqReferer !== trueReferer
+    ) {
+      return { statusCode: 400 };
+    }
+  }
+  console.log(event);
 
   const formInput = JSON.parse(event.body);
   const userName = formInput.name;

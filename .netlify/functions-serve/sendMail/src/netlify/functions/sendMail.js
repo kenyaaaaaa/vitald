@@ -9527,16 +9527,22 @@ __export(sendMail_exports, {
   handler: () => handler
 });
 var import_nodemailer = __toESM(require_nodemailer());
-var handler = async (event, context) => {
-  const trueOrigin = "https://jazzy-mermaid-ca196f.netlify.app";
-  const trueReferer = "https://jazzy-mermaid-ca196f.netlify.app/contact";
-  const reqMethod = event.httpMethod;
-  const reqOrigin = event.headers["origin"];
-  const reqReferer = event.headers["referer"];
-  console.log(event);
-  if (reqMethod !== "POST" || reqOrigin !== trueOrigin || reqReferer !== trueReferer || !event.body) {
+var handler = async (event, _context) => {
+  const isProdEnv = process.env.NODE_ENV === "production";
+  if (!event.body) {
     return { statusCode: 400 };
   }
+  if (isProdEnv) {
+    const trueOrigin = "https://jazzy-mermaid-ca196f.netlify.app";
+    const trueReferer = "https://jazzy-mermaid-ca196f.netlify.app/contact";
+    const reqMethod = event.httpMethod;
+    const reqOrigin = event.headers["origin"];
+    const reqReferer = event.headers["referer"];
+    if (!event.body || reqMethod !== "POST" || reqOrigin !== trueOrigin || reqReferer !== trueReferer) {
+      return { statusCode: 400 };
+    }
+  }
+  console.log(event);
   const formInput = JSON.parse(event.body);
   const userName = formInput.name;
   const userCompany = formInput.company;
