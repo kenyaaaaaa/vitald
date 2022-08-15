@@ -9528,15 +9528,15 @@ __export(sendMail_exports, {
 });
 var import_nodemailer = __toESM(require_nodemailer());
 var handler = async (event, context) => {
-  console.log(event.headers);
-  const ip = event.headers["x-forwarded-for"];
-  const s = /(:?^| )34\.126\.184\.144, [\d.]+$/;
-  console.log(ip);
-  console.log(ip == null ? void 0 : ip.match(s));
-  if (!event.body) {
-    return { statusCode: 500 };
+  const trueOrigin = "https://jazzy-mermaid-ca196f.netlify.app";
+  const trueReferer = "https://jazzy-mermaid-ca196f.netlify.app/contact";
+  const reqMethod = event.httpMethod;
+  const reqOrigin = event.headers["origin"];
+  const reqReferer = event.headers["referer"];
+  console.log(event);
+  if (reqMethod !== "POST" || reqOrigin !== trueOrigin || reqReferer !== trueReferer || !event.body) {
+    return { statusCode: 400 };
   }
-  console.log(event.body);
   const formInput = JSON.parse(event.body);
   const userName = formInput.name;
   const userCompany = formInput.company;
