@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { mqLarge } from "../../utils/style";
 
@@ -16,19 +17,29 @@ const Footer = () => {
           <div>
             <ul>
               <li>
-                <a href="">業務内容</a>
+                <Link href={"/service"} scroll={false}>
+                  <a>業務内容</a>
+                </Link>
               </li>
               <li>
-                <a href="">製作実績</a>
+                <Link href={"/product"} scroll={false}>
+                  <a>製作実績</a>
+                </Link>
               </li>
               <li>
-                <a href="">会社概要</a>
+                <Link href={"/company"} scroll={false}>
+                  <a>会社概要</a>
+                </Link>
               </li>
               <li>
-                <a href="">よくある質問</a>
+                <Link href={"/faq"} scroll={false}>
+                  <a>よくある質問</a>
+                </Link>
               </li>
               <li>
-                <a href="">お問い合わせ</a>
+                <Link href={"/contact"} scroll={false}>
+                  <a>お問い合わせ</a>
+                </Link>
               </li>
             </ul>
           </div>

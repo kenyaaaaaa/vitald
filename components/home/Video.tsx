@@ -35,7 +35,11 @@ const Video = () => {
           );
         })}
 
-        <ReadMore bgColor={"whitesmoke"} text={"その他の動画を見る"} />
+        <ReadMore
+          bgColor={"whitesmoke"}
+          text={"その他の動画を見る"}
+          path={"/product"}
+        />
       </section>
     </div>
   );

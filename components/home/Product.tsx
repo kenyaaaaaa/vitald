@@ -80,7 +80,11 @@ const Product = () => {
               </div>
             );
           })}
-          <ReadMore bgColor={"white"} text={"その他の実績を見る"} />
+          <ReadMore
+            bgColor={"white"}
+            text={"その他の実績を見る"}
+            path={"/product"}
+          />
         </>
       </section>
     </div>

@@ -1,17 +1,21 @@
 import { css } from "@emotion/react";
+import Link from "next/link";
 import { mqLarge } from "../../utils/style";
 
 type Props = {
   bgColor: string;
   text: string;
+  path: string;
 };
 
-const ReadMore = ({ bgColor, text }: Props) => {
+const ReadMore = ({ bgColor, text, path }: Props) => {
   return (
     <div css={readMore(bgColor)}>
-      <a href="">
-        <span>{text}・</span>
-      </a>
+      <Link href={path} scroll={false}>
+        <a>
+          <span>{text}・</span>
+        </a>
+      </Link>
     </div>
   );
 };

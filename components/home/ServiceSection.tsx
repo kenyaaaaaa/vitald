@@ -39,7 +39,11 @@ const ServiceSection = () => {
             </div>
           </div>
         </div>
-        <ReadMore bgColor={"whitesmoke"} text={"詳細を見る"} />
+        <ReadMore
+          bgColor={"whitesmoke"}
+          text={"詳細を見る"}
+          path={"/service"}
+        />
       </section>
     </div>
   );
