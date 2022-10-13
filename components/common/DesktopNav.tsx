@@ -13,7 +13,7 @@ const DesktopNav = ({ isHomeAndTop }: Props) => {
       <ul>
         <li>
           <Link href="/service" scroll={false}>
-            <a>業務内容</a>
+            <a>事業内容</a>
           </Link>
         </li>
         <li>
