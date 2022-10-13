@@ -44,7 +44,7 @@ const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
               <div css={iconWrapper}>
                 <Image src="/icons/building.png" width="26px" height="26px" />
               </div>
-              会社情報
+              会社概要
             </a>
           </Link>
         </li>

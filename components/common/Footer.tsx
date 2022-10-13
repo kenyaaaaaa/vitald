@@ -22,7 +22,7 @@ const Footer = () => {
                 <a href="">製作実績</a>
               </li>
               <li>
-                <a href="">会社情報</a>
+                <a href="">会社概要</a>
               </li>
               <li>
                 <a href="">よくある質問</a>

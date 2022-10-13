@@ -3,13 +3,13 @@ import ContactInfo from "../components/common/ContactInfo";
 import Footer from "../components/common/Footer";
 import Head from "next/head";
 import { css } from "@emotion/react";
-import { mqLarge } from "../utils/style";
 import type { ReactElement } from "react";
 
 import type { NextPageWithLayout } from "./_app";
 import { motion } from "framer-motion";
+import Service from "../components/service/Service";
 
-const Service: NextPageWithLayout = () => {
+const ServicePage: NextPageWithLayout = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -17,18 +17,12 @@ const Service: NextPageWithLayout = () => {
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.3 }}
     >
-      <div css={wrapperInner}>
-        <div css={title}>
-          <h1>業務内容</h1>
-          <p>Service</p>
-        </div>
-        <div css={container}></div>
-      </div>
+      <Service />
     </motion.div>
   );
 };
 
-Service.getLayout = function getLayout(page: ReactElement) {
+ServicePage.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
       <Head>
@@ -52,45 +46,5 @@ Service.getLayout = function getLayout(page: ReactElement) {
 const wrapper = css`
   position: relative;
 `;
-const wrapperInner = css`
-  position: relative;
-  background-color: whitesmoke;
-  padding-top: 11rem;
-  height: 1400px;
-  ${mqLarge} {
-    /* padding-bottom: 3rem; */
-    position: relative;
-  }
-`;
-const container = css`
-  ${mqLarge} {
-    position: absolute;
-    top: 24rem;
-    /* left: 0; */
-    height: 800px;
-    width: 1700px;
-    max-width: 1700px;
-    background-color: white;
-    box-shadow: 6px 6px 20px gainsboro;
-  }
-`;
-const title = css`
-  max-width: 1200px;
-  margin-left: 3rem;
-  p {
-    font-size: 1rem;
-  }
-  ${mqLarge} {
-    margin: 0 auto;
-    h1 {
-      /* font-size: 2.7rem; */
-    }
-    p {
-      color: black;
-      font-size: 1.2rem;
-      text-align: left;
-    }
-  }
-`;
 
-export default Service;
+export default ServicePage;

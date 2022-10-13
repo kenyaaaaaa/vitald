@@ -23,7 +23,7 @@ const DesktopNav = ({ isHomeAndTop }: Props) => {
         </li>
         <li>
           <Link href="/company" scroll={false}>
-            <a>会社情報</a>
+            <a>会社概要</a>
           </Link>
         </li>
         <li>

@@ -1,6 +1,5 @@
 import Header from "../components/common/Header";
 import Hero from "../components/home/Hero";
-import Service from "../components/home/Service";
 import Product from "../components/home/Product";
 import Video from "../components/home/Video";
 import ContactInfo from "../components/common/ContactInfo";
@@ -11,6 +10,7 @@ import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
 import { motion } from "framer-motion";
+import ServiceSection from "../components/home/ServiceSection";
 
 const HomePage: NextPageWithLayout = () => {
   SetFillHeight();
@@ -23,7 +23,7 @@ const HomePage: NextPageWithLayout = () => {
       transition={{ duration: 0.3 }}
     >
       <Hero />
-      <Service />
+      <ServiceSection />
       <Product />
       <Video />
     </motion.div>

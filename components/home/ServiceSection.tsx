@@ -3,7 +3,7 @@ import ReadMore from "../common/ReadMore";
 import { mqLarge } from "../../utils/style";
 import Image from "next/image";
 
-const Service = () => {
+const ServiceSection = () => {
   return (
     <div css={wrapper}>
       <section css={container}>
@@ -129,4 +129,4 @@ const spMT = css`
   margin-top: 2rem;
 `;
 
-export default Service;
+export default ServiceSection;

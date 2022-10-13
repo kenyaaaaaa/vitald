@@ -5,7 +5,7 @@ const Company = () => {
   return (
     <div css={wrapper}>
       <div css={title}>
-        <h1>会社情報</h1>
+        <h1>会社概要</h1>
         <p>Company</p>
       </div>
       <div css={container}>
@@ -24,7 +24,7 @@ const Company = () => {
           </dl>
           <dl css={item}>
             <dt css={left}>設立日</dt>
-            <dd css={right}>2003年8月1日</dd>
+            <dd css={right}>2003年8月1日（創業1986年）</dd>
           </dl>
           <dl css={item}>
             <dt css={left}>資本金</dt>
