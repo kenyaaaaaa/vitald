@@ -8,8 +8,9 @@ import type { ReactElement } from "react";
 
 import type { NextPageWithLayout } from "./_app";
 import { motion } from "framer-motion";
+import Company from "../components/company/Company";
 
-const Company: NextPageWithLayout = () => {
+const CompanyPage: NextPageWithLayout = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -17,18 +18,12 @@ const Company: NextPageWithLayout = () => {
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.3 }}
     >
-      <div css={wrapperInner}>
-        <div css={title}>
-          <h1>会社情報</h1>
-          <p>Company</p>
-        </div>
-        <div css={container}></div>
-      </div>
+      <Company />
     </motion.div>
   );
 };
 
-Company.getLayout = function getLayout(page: ReactElement) {
+CompanyPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
       <Head>
@@ -91,4 +86,4 @@ const title = css`
   }
 `;
 
-export default Company;
+export default CompanyPage;
