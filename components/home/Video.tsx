@@ -11,7 +11,7 @@ const videoIds: string[] = [
   "y0rd4ctSD-0",
 ];
 
-const Video = () => {
+const VideoSection = () => {
   return (
     <div css={wrapper}>
       <section css={container}>
@@ -25,7 +25,7 @@ const Video = () => {
         </div>
         <ReadMore
           bgColor={"whitesmoke"}
-          text={"その他の動画を見る"}
+          text={"すべての動画を見る"}
           path={"/product"}
         />
       </section>
@@ -67,7 +67,6 @@ const cardWrapper = css`
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  /* margin-bottom: 2rem; */
 `;
 
-export default Video;
+export default VideoSection;

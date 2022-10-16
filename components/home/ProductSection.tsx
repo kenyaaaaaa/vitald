@@ -72,7 +72,7 @@ const ProductSection = () => {
           </div>
           <ReadMore
             bgColor={"white"}
-            text={"その他の実績を見る"}
+            text={"すべての実績を見る"}
             path={"/product"}
           />
         </>

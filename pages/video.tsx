@@ -1,20 +1,15 @@
 import Header from "../components/common/Header";
-import Hero from "../components/home/Hero";
-import ProductSection from "../components/home/ProductSection";
-import VideoSection from "../components/home/Video";
 import ContactInfo from "../components/common/ContactInfo";
 import Footer from "../components/common/Footer";
 import Head from "next/head";
-import { SetFillHeight } from "../utils/style";
 import { css } from "@emotion/react";
 import type { ReactElement } from "react";
+
 import type { NextPageWithLayout } from "./_app";
 import { motion } from "framer-motion";
-import ServiceSection from "../components/home/ServiceSection";
+import Video from "../components/video/Video";
 
-const HomePage: NextPageWithLayout = () => {
-  SetFillHeight();
-
+const VideoPage: NextPageWithLayout = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -22,15 +17,12 @@ const HomePage: NextPageWithLayout = () => {
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.3 }}
     >
-      <Hero />
-      <ServiceSection />
-      <ProductSection />
-      <VideoSection />
+      <Video />
     </motion.div>
   );
 };
 
-HomePage.getLayout = function getLayout(page: ReactElement) {
+VideoPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <>
       <Head>
@@ -55,4 +47,4 @@ const wrapper = css`
   position: relative;
 `;
 
-export default HomePage;
+export default VideoPage;
