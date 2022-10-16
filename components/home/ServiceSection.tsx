@@ -53,11 +53,11 @@ const wrapper = css`
   background-color: whitesmoke;
 `;
 const container = css`
-  padding: 4rem 3rem 2rem 3rem;
+  padding: 4rem 3rem 0.5rem 3rem;
   margin: 0 auto;
   max-width: 1200px;
   ${mqLarge} {
-    padding: 7rem 1rem 3rem;
+    padding: 7rem 1rem 0.5rem;
   }
 `;
 
