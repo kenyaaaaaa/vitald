@@ -1,7 +1,6 @@
 import { css } from "@emotion/react";
 import VideoCard from "./VideoCard";
 import ReadMore from "../common/ReadMore";
-import { mqLarge } from "../../utils/style";
 
 const videoIds: string[] = [
   "4XxmlgdYH1Y",
@@ -11,12 +10,6 @@ const videoIds: string[] = [
   "6yPqWxWPQx4",
   "y0rd4ctSD-0",
 ];
-function chunk<T extends any[]>(arr: T, size: number) {
-  return arr.reduce(
-    (newarr, _, i) => (i % size ? newarr : [...newarr, arr.slice(i, i + size)]),
-    [] as T[][]
-  );
-}
 
 const Video = () => {
   return (
@@ -25,16 +18,11 @@ const Video = () => {
         <div css={title}>
           <h1>動画で見る</h1>
         </div>
-        {chunk(videoIds, 3).map((element: any, index: number) => {
-          return (
-            <div css={cardWrapper} key={index}>
-              {element.map((videoId: string, index: number) => {
-                return <VideoCard videoId={videoId} key={index} />;
-              })}
-            </div>
-          );
-        })}
-
+        <div css={cardWrapper}>
+          {videoIds.map((videoId: string, index: number) => {
+            return <VideoCard videoId={videoId} key={index} />;
+          })}
+        </div>
         <ReadMore
           bgColor={"whitesmoke"}
           text={"その他の動画を見る"}
@@ -76,10 +64,10 @@ const title = css`
 `;
 
 const cardWrapper = css`
-  ${mqLarge} {
-    display: flex;
-    justify-content: space-between;
-  }
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  /* margin-bottom: 2rem; */
 `;
 
 export default Video;

@@ -49,13 +49,6 @@ const products: Product[] = [
 // <h2>マスコットロボット「フッピィ」</h2>
 // <p>首を左右に振り、両手足を上下に可動させることができる。3種類の音声出力も可能
 
-function chunk<T extends any[]>(arr: T, size: number) {
-  return arr.reduce(
-    (newarr, _, i) => (i % size ? newarr : [...newarr, arr.slice(i, i + size)]),
-    [] as T[][]
-  );
-}
-
 const ProductSection = () => {
   return (
     <div css={wrapper}>
@@ -64,22 +57,19 @@ const ProductSection = () => {
           <div css={title}>
             <h1>これまでの実績</h1>
           </div>
-          {chunk(products, 3).map((element: any, index: number) => {
-            return (
-              <div css={cardWrapper} key={index}>
-                {element.map((product: Product, index: number) => {
-                  return (
-                    <ProductCard
-                      key={index}
-                      imageFile={product.imageFile}
-                      title={product.title}
-                      brief={product.brief}
-                    />
-                  );
-                })}
-              </div>
-            );
-          })}
+
+          <div css={cardWrapper}>
+            {products.map((product: Product, index: number) => {
+              return (
+                <ProductCard
+                  key={index}
+                  imageFile={product.imageFile}
+                  title={product.title}
+                  brief={product.brief}
+                />
+              );
+            })}
+          </div>
           <ReadMore
             bgColor={"white"}
             text={"その他の実績を見る"}
@@ -118,12 +108,10 @@ const title = css`
   }
 `;
 const cardWrapper = css`
-  ${mqLarge} {
-    display: flex;
-    /* justify-content: space-around; */
-    justify-content: space-between;
-    margin-bottom: 2rem;
-  }
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  margin-bottom: 2rem;
 `;
 
 export default ProductSection;

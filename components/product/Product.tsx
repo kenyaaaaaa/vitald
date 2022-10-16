@@ -228,12 +228,10 @@ const categoryWrapper = css`
   }
 `;
 const cardWrapper = css`
-  ${mqLarge} {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    margin-bottom: 2rem;
-  }
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  margin-bottom: 2rem;
 `;
 
 const wrapper = css`

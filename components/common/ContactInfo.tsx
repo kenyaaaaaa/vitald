@@ -40,7 +40,7 @@ const wrapper = css`
 
 const contact = css`
   position: absolute;
-  /* bottom: -40rem; */
+  /* width: 500px; */
   top: -10rem;
   left: 50%;
   transform: translateX(-50%);
@@ -48,13 +48,15 @@ const contact = css`
   color: white;
   ${mqLarge} {
     display: flex;
-    /* bottom: -15rem; */
     top: -10rem;
   }
 `;
 
 const contactInner = css`
-  width: 320px;
+  /* min-width: 320px; */
+
+  width: 90vw;
+  /* width: 80%; */
   padding: 3rem 0;
   ${mqLarge} {
     width: 600px;
