@@ -1,6 +1,6 @@
 import Header from "../components/common/Header";
 import Hero from "../components/home/Hero";
-import Product from "../components/home/Product";
+import ProductSection from "../components/home/ProductSection";
 import Video from "../components/home/Video";
 import ContactInfo from "../components/common/ContactInfo";
 import Footer from "../components/common/Footer";
@@ -24,7 +24,7 @@ const HomePage: NextPageWithLayout = () => {
     >
       <Hero />
       <ServiceSection />
-      <Product />
+      <ProductSection />
       <Video />
     </motion.div>
   );

@@ -56,7 +56,7 @@ function chunk<T extends any[]>(arr: T, size: number) {
   );
 }
 
-const Product = () => {
+const ProductSection = () => {
   return (
     <div css={wrapper}>
       <section css={container}>
@@ -126,4 +126,4 @@ const cardWrapper = css`
   }
 `;
 
-export default Product;
+export default ProductSection;

@@ -29,6 +29,7 @@ const ProductCard = ({ imageFile, title, brief }: Props) => {
 const cardWrapper = css`
   position: relative;
   margin-bottom: 3rem;
+  flex-basis: 25%;
   ${mqLarge} {
     :hover img {
       transform: scale(1.1);
