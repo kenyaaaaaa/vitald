@@ -100,7 +100,7 @@ const Product = () => {
         </div>
         <div css={videoLink}>
           <Link href={"/video"} scroll={false}>
-            <a>動画で見る</a>
+            <a>動画で見る </a>
           </Link>
         </div>
       </div>
@@ -201,7 +201,6 @@ const category = css`
     padding: 0.5rem 0;
   }
   input[type="checkbox"]:checked ~ label {
-    background-color: hsl(240, 100%, 30%);
     background-color: hsl(240, 70%, 20%);
     color: white;
   }
@@ -218,14 +217,14 @@ const categoryWrapper = css`
   row-gap: 1rem;
   justify-content: center;
   /* justify-items: center; */
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 10rem));
   background-color: whitesmoke;
   background-color: hsl(240, 5%, 93%);
   background-color: white;
   ${mqLarge} {
     row-gap: 2rem;
     padding-top: 5rem;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 210px));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
   }
 `;
 const cardWrapper = css`
@@ -237,14 +236,15 @@ const cardWrapper = css`
 
 const wrapper = css`
   background-color: whitesmoke;
-  padding-bottom: 20rem;
+  padding-bottom: 15rem;
   padding-top: 9rem;
   ${mqLarge} {
+    padding-bottom: 20rem;
     padding-top: 11rem;
   }
 `;
 const container = css`
-  margin-top: 5rem;
+  margin-top: 4rem;
   background-color: white;
   ${mqLarge} {
     /* box-shadow: 6px 6px 20px gainsboro; */
@@ -252,9 +252,9 @@ const container = css`
 `;
 const productWrapper = css`
   margin: 2rem auto 0 auto;
-  padding: 3rem 3rem;
+  padding: 3rem 3rem 0 3rem;
   ${mqLarge} {
-    padding: 4rem 0 8rem 0;
+    padding: 4rem 0 2rem 0;
     max-width: 1400px;
   }
 `;
@@ -267,10 +267,10 @@ const videoLink = css`
     /* color: hsl(240, 70%, 20%); */
     margin-left: 3rem;
     border: 1px solid hsl(240, 70%, 20%);
-    border-radius: 10px;
+    border-radius: 100px;
     background-color: hsl(240, 70%, 20%);
     /* background-color: whitesmoke; */
-    padding: 0.1rem 2rem;
+    padding: 0.2rem 2rem;
   }
 `;
 

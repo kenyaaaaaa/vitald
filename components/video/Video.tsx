@@ -1,7 +1,5 @@
 import { css } from "@emotion/react";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
 import { mqLarge } from "../../utils/style";
 import VideoCard from "../home/VideoCard";
 
@@ -24,7 +22,7 @@ const Video = () => {
         </div>
         <div css={videoLink}>
           <Link href={"/product"} scroll={false}>
-            <a>実績一覧に戻る</a>
+            <a>実績一覧へ</a>
           </Link>
         </div>
       </div>
@@ -56,7 +54,7 @@ const wrapper = css`
   }
 `;
 const container = css`
-  margin-top: 5rem;
+  margin-top: 4rem;
   background-color: white;
   ${mqLarge} {
     /* box-shadow: 6px 6px 20px gainsboro; */
@@ -64,9 +62,9 @@ const container = css`
 `;
 const productWrapper = css`
   margin: 2rem auto 0 auto;
-  padding: 3rem 3rem;
+  padding: 3rem 3rem 0rem 3rem;
   ${mqLarge} {
-    padding: 6rem 0 6rem 0;
+    padding: 6rem 0 2rem 0;
     max-width: 1400px;
   }
 `;
@@ -79,10 +77,10 @@ const videoLink = css`
     /* color: hsl(240, 70%, 20%); */
     margin-left: 3rem;
     border: 1px solid hsl(240, 70%, 20%);
-    border-radius: 10px;
+    border-radius: 100px;
     background-color: hsl(240, 70%, 20%);
     /* background-color: whitesmoke; */
-    padding: 0.1rem 2rem;
+    padding: 0.2rem 2rem;
   }
 `;
 
