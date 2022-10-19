@@ -22,7 +22,7 @@ let products: Product[] = [
   },
   {
     imageFile: "05.jpg",
-    title: "リング往復回転（揺動）装置",
+    title: "リング往復回転装置",
     brief: "リング部品を規定回数、規定時間往復回転させる装置。",
     category: "automachine",
   },
@@ -35,7 +35,7 @@ let products: Product[] = [
   },
   {
     imageFile: "02.jpg",
-    title: "夢ロボ",
+    title: "壁面昇降ロボット「夢ロボ」",
     brief:
       "垂直の壁を昇降することができる人型のロボット。上海万博に展示された。",
     category: "robot",
@@ -48,11 +48,53 @@ let products: Product[] = [
     category: "inspection",
   },
   {
-    imageFile: "03.jpg",
-    title: "5軸雲台",
+    imageFile: "08.jpg",
+    title: "1軸旋回台",
+    brief: "ここに製品の説明が入ります。ここに製品の説明が入ります。",
+    category: "automachine",
+  },
+  {
+    imageFile: "09.jpg",
+    title: "介護用移乗装置",
+    brief: "ここに製品の説明が入ります。ここに製品の説明が入ります。",
+    category: "experiment",
+  },
+  {
+    imageFile: "13.jpg",
+    title: "打検装置",
+    brief: "ここに製品の説明が入ります。ここに製品の説明が入ります。",
+    category: "inspection",
+  },
+  {
+    imageFile: "10.jpg",
+    title: "3Hz高速反復移動装置",
     brief:
-      "動く被写体の中心部を常時捕捉できるように、3台のカメラの向きや傾きを自動制御する。",
-    category: "",
+      "100mmの間隔の中で、2kgの物体を3往復（毎秒）移動させることができる装置。",
+    category: "experiment",
+  },
+  {
+    imageFile: "11.jpg",
+    title: "足首関節模擬装置",
+    brief: "ここに製品の説明が入ります。ここに製品の説明が入ります。",
+    category: "experiment",
+  },
+  {
+    imageFile: "14.jpg",
+    title: "3軸姿勢制御装置",
+    brief: "ここに製品の説明が入ります。ここに製品の説明が入ります。",
+    category: "automachine",
+  },
+  {
+    imageFile: "15.jpg",
+    title: "2軸精密電動雲台",
+    brief: "ここに製品の説明が入ります。ここに製品の説明が入ります。",
+    category: "automachine",
+  },
+  {
+    imageFile: "12.jpg",
+    title: "マスコットロボット「ふっぴぃ」",
+    brief: "ここに製品の説明が入ります。ここに製品の説明が入ります。",
+    category: "robot",
   },
 ];
 // <h2>マスコットロボット「フッピィ」</h2>
