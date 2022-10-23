@@ -1,27 +1,35 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { mqLarge } from "../../utils/style";
 
 type Props = {
+  pid: string;
   imageFile: string;
   title: string;
   brief: string;
 };
 
-const ProductCard = ({ imageFile, title, brief }: Props) => {
+const ProductCard = ({ pid, imageFile, title, brief }: Props) => {
   return (
     <article css={cardWrapper}>
-      <a href="">
-        <div css={card}>
-          <div css={imageWrapper}>
-            <Image src={`/images/${imageFile}`} width="320px" height="180px" />
+      <Link href={`/product/${pid}`}>
+        <a>
+          <div css={card}>
+            <div css={imageWrapper}>
+              <Image
+                src={`/images/products/${imageFile}`}
+                width="320px"
+                height="180px"
+              />
+            </div>
+            <div css={desc}>
+              <h2>{title}</h2>
+              <p>{brief}</p>
+            </div>
           </div>
-          <div css={desc}>
-            <h2>{title}</h2>
-            <p>{brief}</p>
-          </div>
-        </div>
-      </a>
+        </a>
+      </Link>
     </article>
   );
 };

@@ -1,13 +1,13 @@
-import Header from "../components/common/Header";
-import ContactInfo from "../components/common/ContactInfo";
-import Footer from "../components/common/Footer";
+import Header from "../../components/common/Header";
+import ContactInfo from "../../components/common/ContactInfo";
+import Footer from "../../components/common/Footer";
 import Head from "next/head";
 import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 
-import type { NextPageWithLayout } from "./_app";
+import type { NextPageWithLayout } from "../_app";
 import { motion } from "framer-motion";
-import Products from "../components/product/Products";
+import Product from "../../components/product/Product";
 
 const ProductPage: NextPageWithLayout = () => {
   return (
@@ -17,7 +17,7 @@ const ProductPage: NextPageWithLayout = () => {
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.3 }}
     >
-      <Products />
+      <Product />
     </motion.div>
   );
 };
