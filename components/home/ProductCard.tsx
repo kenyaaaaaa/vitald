@@ -5,12 +5,12 @@ import { mqLarge } from "../../utils/style";
 
 type Props = {
   pid: string;
-  imageFile: string;
+  imageUrl: string;
   title: string;
   brief: string;
 };
 
-const ProductCard = ({ pid, imageFile, title, brief }: Props) => {
+const ProductCard = ({ pid, imageUrl, title, brief }: Props) => {
   return (
     <article css={cardWrapper}>
       <Link href={`/product/${pid}`}>
@@ -18,7 +18,7 @@ const ProductCard = ({ pid, imageFile, title, brief }: Props) => {
           <div css={card}>
             <div css={imageWrapper}>
               <Image
-                src={`/images/products/${imageFile}`}
+                src={`/images/products/${imageUrl}`}
                 width="320px"
                 height="180px"
               />

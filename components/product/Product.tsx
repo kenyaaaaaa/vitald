@@ -1,11 +1,7 @@
 import { css } from "@emotion/react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { mqLarge } from "../../utils/style";
-import ProductCard from "../home/ProductCard";
 
 type Product = {
   pid: string;

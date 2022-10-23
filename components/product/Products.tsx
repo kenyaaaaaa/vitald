@@ -270,7 +270,7 @@ const Products = () => {
                   <ProductCard
                     key={index}
                     pid={product.pid}
-                    imageFile={product.imageUrl.list}
+                    imageUrl={product.imageUrl.list}
                     title={product.title}
                     brief={product.brief}
                   />
