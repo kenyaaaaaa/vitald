@@ -11,8 +11,6 @@ const targetVideoIds = productData
   .map((product) => product.videoIds)
   .flat();
 
-console.log(targetVideoIds);
-
 const Video = () => {
   return (
     <div css={wrapper}>
