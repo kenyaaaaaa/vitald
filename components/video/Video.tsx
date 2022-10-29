@@ -2,15 +2,16 @@ import { css } from "@emotion/react";
 import Link from "next/link";
 import { mqLarge } from "../../utils/style";
 import VideoCard from "../home/VideoCard";
+import { productData } from "../../const/ProductData";
 
-const videoIds: string[] = [
-  "4XxmlgdYH1Y",
-  "kaH6sePO1EQ",
-  "y66GE4Zj0S4",
-  "eOUsEipTaSA",
-  "6yPqWxWPQx4",
-  "y0rd4ctSD-0",
-];
+const targetVideoIds = productData
+  .filter((product) => {
+    return product.videoIds.length > 0;
+  })
+  .map((product) => product.videoIds)
+  .flat();
+
+console.log(targetVideoIds);
 
 const Video = () => {
   return (
@@ -29,7 +30,7 @@ const Video = () => {
       <div css={container}>
         <div css={productWrapper}>
           <div css={cardWrapper}>
-            {videoIds.map((videoId: string, index: number) => {
+            {targetVideoIds.map((videoId: string, index: number) => {
               return <VideoCard videoId={videoId} key={index} />;
             })}
           </div>

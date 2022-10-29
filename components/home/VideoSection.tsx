@@ -1,15 +1,21 @@
 import { css } from "@emotion/react";
 import VideoCard from "./VideoCard";
 import ReadMore from "../common/ReadMore";
+import { productData } from "../../const/ProductData";
 
-const videoIds: string[] = [
-  "4XxmlgdYH1Y",
-  "kaH6sePO1EQ",
-  "y66GE4Zj0S4",
-  "eOUsEipTaSA",
-  "6yPqWxWPQx4",
-  "y0rd4ctSD-0",
-];
+const targetVideoIds = productData
+  .filter((product) => {
+    switch (product.pid) {
+      case "1":
+      case "2":
+      case "12":
+      case "4":
+      case "5":
+      case "11":
+        return true;
+    }
+  })
+  .map((product) => product.videoIds.shift()) as string[];
 
 const VideoSection = () => {
   return (
@@ -19,14 +25,14 @@ const VideoSection = () => {
           <h1>動画で見る</h1>
         </div>
         <div css={cardWrapper}>
-          {videoIds.map((videoId: string, index: number) => {
+          {targetVideoIds.map((videoId: string, index: number) => {
             return <VideoCard videoId={videoId} key={index} />;
           })}
         </div>
         <ReadMore
           bgColor={"whitesmoke"}
           text={"すべての動画を見る"}
-          path={"/product"}
+          path={"/video"}
         />
       </section>
     </div>
