@@ -4,14 +4,14 @@ import { mqLarge } from "../../utils/style";
 import VideoCard from "../home/VideoCard";
 import { productData } from "../../const/ProductData";
 
-const targetVideoIds = productData
-  .filter((product) => {
-    return product.videoIds.length > 0;
-  })
-  .map((product) => product.videoIds)
-  .flat();
-
 const Video = () => {
+  const targetVideoIds = productData
+    .filter((product) => {
+      return product.videoIds.length > 0;
+    })
+    .map((product) => product.videoIds)
+    .flat();
+  console.log(targetVideoIds);
   return (
     <div css={wrapper}>
       <div css={title}>
