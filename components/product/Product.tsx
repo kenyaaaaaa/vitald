@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { mqLarge } from "../../utils/style";
 import { productData } from "../../const/ProductData";
+import Link from "next/link";
 
 const Product = () => {
   const router = useRouter();
@@ -42,14 +43,32 @@ const Product = () => {
         ) : (
           <></>
         )}
+        <div css={backLink}>
+          <Link href="/product" scroll={false}>
+            <a>実績一覧に戻る</a>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
+const backLink = css`
+  margin-top: 4rem;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.3rem;
+  a {
+    border-bottom: 2px solid hsl(240, 70%, 20%);
+    display: inline-block;
+  }
+  ${mqLarge} {
+    margin-top: 8rem;
+  }
+`;
 const wrapper = css`
   background-color: whitesmoke;
-  padding-bottom: 15rem;
+  padding-bottom: 18rem;
   padding-top: 9rem;
   ${mqLarge} {
     padding-bottom: 20rem;

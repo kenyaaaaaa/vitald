@@ -202,7 +202,7 @@ const container = css`
 `;
 const productWrapper = css`
   margin: 2rem auto 0 auto;
-  padding: 3rem 3rem 0 3rem;
+  padding-top: 3rem;
   ${mqLarge} {
     padding: 4rem 0 2rem 0;
     max-width: 1400px;
