@@ -44,7 +44,7 @@ const Product = () => {
           <></>
         )}
         <div css={backLink}>
-          <Link href="/product" scroll={false}>
+          <Link href="/product">
             <a>実績一覧に戻る</a>
           </Link>
         </div>

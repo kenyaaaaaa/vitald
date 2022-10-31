@@ -11,7 +11,7 @@ type Props = {
 const ReadMore = ({ bgColor, text, path }: Props) => {
   return (
     <div css={readMore(bgColor)}>
-      <Link href={path} scroll={false}>
+      <Link href={path}>
         <a>
           <span>{text}・</span>
         </a>

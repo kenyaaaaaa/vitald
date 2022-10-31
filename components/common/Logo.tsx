@@ -14,7 +14,7 @@ const Logo = ({ isHomeAndTop }: Props) => {
   const isHome = router.pathname === "/";
   console.log(isHome);
   return (
-    <Link href="/" scroll={false}>
+    <Link href="/">
       <a css={[logo, isHome && spBgBlue, isHomeAndTop ? bgBlue : BgWhite]}>
         <h1>国際バイタルディバイス有限会社</h1>
         <p>Vital Device International</p>

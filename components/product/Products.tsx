@@ -1,5 +1,4 @@
 import { css } from "@emotion/react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { mqLarge } from "../../utils/style";
@@ -48,7 +47,7 @@ const Products = () => {
           <p>Product</p>
         </div>
         <div css={videoLink}>
-          <Link href={"/video"} scroll={false}>
+          <Link href={"/video"}>
             <a>動画で見る </a>
           </Link>
         </div>
@@ -112,21 +111,13 @@ const Products = () => {
           <div css={cardWrapper}>
             {targetProducts.map((product: ProductData, index: number) => {
               return (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.5 }}
+                <ProductCard
                   key={index}
-                >
-                  <ProductCard
-                    key={index}
-                    pid={product.pid}
-                    imageUrl={product.imageUrl.list}
-                    title={product.title}
-                    brief={product.brief}
-                  />
-                </motion.div>
+                  pid={product.pid}
+                  imageUrl={product.imageUrl.list}
+                  title={product.title}
+                  brief={product.brief}
+                />
               );
             })}
           </div>

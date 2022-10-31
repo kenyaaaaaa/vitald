@@ -4,22 +4,11 @@ import Footer from "../components/common/Footer";
 import Head from "next/head";
 import type { ReactElement } from "react";
 import Faq from "../components/faq/Faq";
-
 import type { NextPageWithLayout } from "./_app";
 import { css } from "@emotion/react";
-import { motion } from "framer-motion";
 
 const FaqPage: NextPageWithLayout = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.3 }}
-    >
-      <Faq />
-    </motion.div>
-  );
+  return <Faq />;
 };
 
 FaqPage.getLayout = function getLayout(page: ReactElement) {

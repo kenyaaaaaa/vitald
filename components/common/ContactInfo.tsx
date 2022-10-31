@@ -18,7 +18,7 @@ const Contact = () => {
         </div>
         <div css={[mail, contactInner]}>
           <h3>サイトでのお問い合わせ</h3>
-          <Link href="/contact" scroll={false}>
+          <Link href="/contact">
             <a>お問い合わせフォームへ・</a>
           </Link>
           <p>

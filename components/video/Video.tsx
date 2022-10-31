@@ -20,7 +20,7 @@ const Video = () => {
           <p>Video</p>
         </div>
         <div css={videoLink}>
-          <Link href={"/product"} scroll={false}>
+          <Link href={"/product"}>
             <a>実績一覧へ</a>
           </Link>
         </div>

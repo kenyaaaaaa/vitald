@@ -6,20 +6,10 @@ import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 
 import type { NextPageWithLayout } from "./_app";
-import { motion } from "framer-motion";
 import Video from "../components/video/Video";
 
 const VideoPage: NextPageWithLayout = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.3 }}
-    >
-      <Video />
-    </motion.div>
-  );
+  return <Video />;
 };
 
 VideoPage.getLayout = function getLayout(page: ReactElement) {

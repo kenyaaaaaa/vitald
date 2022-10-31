@@ -6,20 +6,10 @@ import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 
 import type { NextPageWithLayout } from "./_app";
-import { motion } from "framer-motion";
 import Service from "../components/service/Service";
 
 const ServicePage: NextPageWithLayout = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.3 }}
-    >
-      <Service />
-    </motion.div>
-  );
+  return <Service />;
 };
 
 ServicePage.getLayout = function getLayout(page: ReactElement) {

@@ -13,7 +13,7 @@ type Props = {
 const ProductCard = ({ pid, imageUrl, title, brief }: Props) => {
   return (
     <article css={cardWrapper}>
-      <Link href={`/product/${pid}`} scroll={false}>
+      <Link href={`/product/${pid}`}>
         <a>
           <div css={card}>
             <div css={imageWrapper}>
