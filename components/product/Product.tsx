@@ -14,22 +14,34 @@ const Product = () => {
     <div css={wrapper}>
       <div css={container}>
         <h1>{targetProduct?.title}</h1>
-        <div css={detailblock}>
+        <div css={detailBlock}>
           <div css={left}>
             <p>{targetProduct?.description}</p>
           </div>
           <div css={right}>
-            <div css={imageWrapper}>
-              <Image
-                src={`/images/products/${targetProduct?.imageUrl.detail}`}
-                width="360px"
-                height="270px"
-                // width="320px"
-                // height="240px"
-              />
-            </div>
+            <Image
+              src={`/images/products/${targetProduct?.imageUrl.detail}`}
+              width="360px"
+              height="270px"
+            />
           </div>
         </div>
+        {targetProduct?.videoIds.length ? (
+          <div css={videoWrapper}>
+            {targetProduct.videoIds.map((id, index) => (
+              <iframe
+                key={index}
+                src={`https://www.youtube.com/embed/${id}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ))}
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
@@ -44,8 +56,25 @@ const wrapper = css`
     padding-top: 11rem;
   }
 `;
+const videoWrapper = css`
+  margin-top: 4rem;
+  display: grid;
+  grid-row-gap: 3rem;
+  ${mqLarge} {
+    margin-top: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+    grid-row-gap: 5rem;
+  }
+  iframe {
+    width: 90vw;
+    aspect-ratio: 16 / 9;
+    ${mqLarge} {
+      width: 90%;
+    }
+  }
+`;
 
-const detailblock = css`
+const detailBlock = css`
   display: flex;
   flex-direction: column-reverse;
   ${mqLarge} {
@@ -62,17 +91,10 @@ const left = css`
     }
   }
 `;
-const imageWrapper = css`
-  width: 360px;
-  height: 270px;
-  box-shadow: 6px 6px 20px hsl(0, 0%, 70%); ;
-`;
+
 const right = css`
-  margin: 0 auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  width: 90vw;
-  height: auto;
   ${mqLarge} {
     margin-bottom: 0;
     width: 50vw;
