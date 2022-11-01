@@ -15,7 +15,7 @@ const targetVideoIds = productData
         return true;
     }
   })
-  .map((product) => product.videoIds.shift()) as string[];
+  .map((product) => product.videoIds[0]) as string[];
 
 const VideoSection = () => {
   return (

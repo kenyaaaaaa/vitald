@@ -1,4 +1,3 @@
-import Logo from "./Logo";
 import Image from "next/image";
 import { css } from "@emotion/react";
 import { mqLarge } from "../../utils/style";
