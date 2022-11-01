@@ -15,10 +15,7 @@ const Logo = ({ isHomeAndTop }: Props) => {
   console.log(isHome);
   return (
     <Link href="/">
-      <a
-        href="/"
-        css={[logo, isHome && spBgBlue, isHomeAndTop ? bgBlue : BgWhite]}
-      >
+      <a css={[logo, isHome && spBgBlue, isHomeAndTop ? bgBlue : BgWhite]}>
         <h1>国際バイタルディバイス有限会社</h1>
         <p>Vital Device International</p>
       </a>

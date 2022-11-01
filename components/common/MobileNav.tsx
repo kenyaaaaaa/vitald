@@ -7,7 +7,7 @@ const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
   return (
     <nav css={[nav, isBurgerOpen ? active : ""]}>
       <Link href="/">
-        <a href="/" css={logo}>
+        <a css={logo}>
           <h1>国際バイタルディバイス有限会社</h1>
           <p>Vital Device International</p>
         </a>
