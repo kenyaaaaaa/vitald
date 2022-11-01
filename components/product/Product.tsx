@@ -22,8 +22,10 @@ const Product = () => {
           <div css={right}>
             <Image
               src={`/images/products/${targetProduct?.imageUrl.detail}`}
-              width="360px"
-              height="270px"
+              width="400px"
+              height="300px"
+              // width="2160px"
+              // height="1530px"
             />
           </div>
         </div>
@@ -104,7 +106,7 @@ const detailBlock = css`
 const left = css`
   white-space: pre-wrap;
   ${mqLarge} {
-    width: 50vw;
+    width: 50%;
     p {
       font-size: 1.3rem;
     }
@@ -116,8 +118,7 @@ const right = css`
   margin-bottom: 2rem;
   ${mqLarge} {
     margin-bottom: 0;
-    width: 50vw;
-    margin-left: 7rem;
+    margin-left: 7.5rem;
   }
 `;
 
