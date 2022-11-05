@@ -5,7 +5,7 @@ import Head from "next/head";
 import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
-import Company from "../components/company/Company";
+import Company from "../components/pages/company/Company";
 
 const CompanyPage: NextPageWithLayout = () => {
   return <Company />;

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { mqLarge } from "../../utils/style";
+import { mqLarge } from "../../../const/Breakpoint";
 
 type Faq = {
   question: string;

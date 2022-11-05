@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { mqLarge } from "../../utils/style";
+import { mqLarge } from "../../../const/Breakpoint";
 
 type Props = {
   pid: string;

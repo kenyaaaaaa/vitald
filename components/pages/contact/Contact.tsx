@@ -1,10 +1,10 @@
 import { css } from "@emotion/react";
-import { mqLarge } from "../../utils/style";
-import { useRef, useState } from "react";
+import { mqLarge } from "../../../const/Breakpoint";
+import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import axios from "axios";
 import BeatLoader from "react-spinners/BeatLoader";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useModal } from "react-hooks-use-modal";
 import Link from "next/link";
 

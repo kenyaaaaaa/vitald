@@ -5,7 +5,7 @@ import Head from "next/head";
 import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
-import Products from "../components/product/Products";
+import Products from "../components/pages/product/Products";
 
 const ProductPage: NextPageWithLayout = () => {
   return <Products />;

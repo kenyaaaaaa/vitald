@@ -1,18 +1,18 @@
 import Header from "../components/common/Header";
-import Hero from "../components/home/Hero";
-import ProductSection from "../components/home/ProductSection";
-import VideoSection from "../components/home/VideoSection";
+import Hero from "../components/pages/home/Hero";
+import ProductSection from "../components/pages/home/ProductSection";
+import VideoSection from "../components/pages/home/VideoSection";
 import ContactInfo from "../components/common/ContactInfo";
 import Footer from "../components/common/Footer";
 import Head from "next/head";
-import { SetFillHeight } from "../utils/style";
+import { setViewportHeight } from "../utils/SetViewportHeight";
 import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
-import ServiceSection from "../components/home/ServiceSection";
+import ServiceSection from "../components/pages/home/ServiceSection";
 
 const HomePage: NextPageWithLayout = () => {
-  SetFillHeight();
+  setViewportHeight();
 
   return (
     <>

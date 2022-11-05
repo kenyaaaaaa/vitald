@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { mqLarge } from "../../utils/style";
-import { ProductData, productData } from "../../const/ProductData";
+import { mqLarge } from "../../../const/Breakpoint";
+import { ProductData, productData } from "../../../const/ProductData";
 import Link from "next/link";
 
 const Product = () => {

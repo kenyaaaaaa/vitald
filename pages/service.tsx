@@ -4,9 +4,8 @@ import Footer from "../components/common/Footer";
 import Head from "next/head";
 import { css } from "@emotion/react";
 import type { ReactElement } from "react";
-
 import type { NextPageWithLayout } from "./_app";
-import Service from "../components/service/Service";
+import Service from "../components/pages/service/Service";
 
 const ServicePage: NextPageWithLayout = () => {
   return <Service />;

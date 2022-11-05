@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
-import { mqLarge } from "../../utils/style";
+import { mqLarge } from "../../../const/Breakpoint";
 import VideoCard from "../home/VideoCard";
-import { productData } from "../../const/ProductData";
+import { productData } from "../../../const/ProductData";
 
 const Video = () => {
   const targetVideoIds = productData

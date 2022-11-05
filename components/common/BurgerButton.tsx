@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { mqLarge } from "../../utils/style";
+import { mqLarge } from "../../const/Breakpoint";
 
 type Props = {
   isMobileNavOpen: boolean;

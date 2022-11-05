@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { mqLarge } from "../../utils/style";
+import { mqLarge } from "../../const/Breakpoint";
 
 type Props = {
   isHomeAndPageTop: boolean;

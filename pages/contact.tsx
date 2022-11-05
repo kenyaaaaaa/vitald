@@ -2,7 +2,7 @@ import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 import Head from "next/head";
 import type { ReactElement } from "react";
-import Contact from "../components/contact/Contact";
+import Contact from "../components/pages/contact/Contact";
 import type { NextPageWithLayout } from "./_app";
 import { css } from "@emotion/react";
 

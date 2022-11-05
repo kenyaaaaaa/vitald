@@ -3,7 +3,7 @@ import ContactInfo from "../components/common/ContactInfo";
 import Footer from "../components/common/Footer";
 import Head from "next/head";
 import type { ReactElement } from "react";
-import Faq from "../components/faq/Faq";
+import Faq from "../components/pages/faq/Faq";
 import type { NextPageWithLayout } from "./_app";
 import { css } from "@emotion/react";
 

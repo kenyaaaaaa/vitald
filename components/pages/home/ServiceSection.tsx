@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
-import ReadMore from "../common/ReadMore";
-import { mqLarge } from "../../utils/style";
+import ReadMore from "../../common/ReadMore";
+import { mqLarge } from "../../../const/Breakpoint";
 import Image from "next/image";
 
 const ServiceSection = () => {

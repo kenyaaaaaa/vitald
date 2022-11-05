@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import VideoCard from "./VideoCard";
-import ReadMore from "../common/ReadMore";
-import { productData } from "../../const/ProductData";
+import ReadMore from "../../common/ReadMore";
+import { productData } from "../../../const/ProductData";
 
 const targetVideoIds = productData
   .filter((product) => {

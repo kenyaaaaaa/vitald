@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
-import { mqLarge } from "../../utils/style";
+import { mqLarge } from "../../const/Breakpoint";
 
 const Contact = () => {
   return (

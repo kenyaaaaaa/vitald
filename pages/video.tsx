@@ -6,7 +6,7 @@ import { css } from "@emotion/react";
 import type { ReactElement } from "react";
 
 import type { NextPageWithLayout } from "./_app";
-import Video from "../components/video/Video";
+import Video from "../components/pages/video/Video";
 
 const VideoPage: NextPageWithLayout = () => {
   return <Video />;

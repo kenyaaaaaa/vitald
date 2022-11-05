@@ -2,14 +2,15 @@ import { useState } from "react";
 import BurgerButton from "./BurgerButton";
 import Logo from "./Logo";
 import { css } from "@emotion/react";
-import { mqLarge, useScrolledYZero } from "../../utils/style";
+import { useNotScrolledY } from "../../utils/UseNotScrolledY";
+import { mqLarge } from "../../const/Breakpoint";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 import { useRouter } from "next/router";
 
 const Header = () => {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
-  const isPageTop = useScrolledYZero();
+  const isPageTop = useNotScrolledY();
   const router = useRouter();
 
   const isHomeAndPageTop: boolean =
