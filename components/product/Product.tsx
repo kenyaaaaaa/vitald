@@ -2,34 +2,35 @@ import { css } from "@emotion/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { mqLarge } from "../../utils/style";
-import { productData } from "../../const/ProductData";
+import { ProductData, productData } from "../../const/ProductData";
 import Link from "next/link";
+import { ensureIsDefined } from "../../utils/ensureIsDefined";
 
 const Product = () => {
   const router = useRouter();
   const { pid } = router.query;
-  const targetProduct = productData.find((product) => {
-    return product.pid === pid;
-  });
+  const targetProduct: ProductData = ensureIsDefined(
+    productData.find((product) => {
+      return product.pid === pid;
+    })
+  );
   return (
     <div css={wrapper}>
       <div css={container}>
-        <h1>{targetProduct?.title}</h1>
+        <h1>{targetProduct.title}</h1>
         <div css={detailBlock}>
           <div css={left}>
-            <p>{targetProduct?.description}</p>
+            <p>{targetProduct.description}</p>
           </div>
           <div css={right}>
             <Image
-              src={`/images/products/${targetProduct?.imageUrl.detail}`}
+              src={`/images/products/${targetProduct.imageUrl.detail}`}
               width="400px"
               height="300px"
-              // width="2160px"
-              // height="1530px"
             />
           </div>
         </div>
-        {targetProduct?.videoIds.length ? (
+        {targetProduct.videoIds.length ? (
           <div css={videoWrapper}>
             {targetProduct.videoIds.map((id, index) => (
               <iframe

@@ -6,7 +6,7 @@ import ProductCard from "../home/ProductCard";
 import { ProductData, productData } from "../../const/ProductData";
 
 const Products = () => {
-  let targetProducts = productData;
+  let targetProducts: ProductData[] = productData;
   type category = "all" | "automachine" | "experiment" | "inspection" | "robot";
   const [categoryState, setCategory] = useState<category>("all");
   const changeCategory = (e: any) => {

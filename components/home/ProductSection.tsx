@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import ReadMore from "../common/ReadMore";
 import { ProductData, productData } from "../../const/ProductData";
 
-const targetProducts = productData.filter((product) => {
+const targetProducts: ProductData[] = productData.filter((product) => {
   switch (product.pid) {
     case "1":
     case "2":
