@@ -9,11 +9,13 @@ import { ensureIsDefined } from "../../utils/ensureIsDefined";
 const Product = () => {
   const router = useRouter();
   const { pid } = router.query;
+
   const targetProduct: ProductData = ensureIsDefined(
     productData.find((product) => {
       return product.pid === pid;
     })
   );
+
   return (
     <div css={wrapper}>
       <div css={container}>
