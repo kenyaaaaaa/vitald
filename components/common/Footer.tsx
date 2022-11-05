@@ -17,9 +17,9 @@ const Footer = () => {
         <div css={wrapper}>
           <div>
             <ul>
-              {navItems.map((navItem: NavItem) => {
+              {navItems.map((navItem: NavItem, index: number) => {
                 return (
-                  <li>
+                  <li key={index}>
                     <Link href={navItem.path}>
                       <a>{navItem.name}</a>
                     </Link>

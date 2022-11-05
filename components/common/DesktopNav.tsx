@@ -11,9 +11,9 @@ const DesktopNav = ({ isHomeAndPageTop }: Props) => {
   return (
     <nav css={nav(isHomeAndPageTop)}>
       <ul>
-        {navItems.map((navItem: NavItem) => {
+        {navItems.map((navItem: NavItem, index: number) => {
           return (
-            <li>
+            <li key={index}>
               <Link href={navItem.path}>
                 <a>{navItem.name}</a>
               </Link>

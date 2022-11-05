@@ -14,9 +14,9 @@ const MobileNav = ({ isMobileNavOpen }: { isMobileNavOpen: boolean }) => {
         </a>
       </Link>
       <ul>
-        {navItems.map((navItem: NavItem) => {
+        {navItems.map((navItem: NavItem, index: number) => {
           return (
-            <li>
+            <li key={index}>
               <Link href={navItem.path}>
                 <a>
                   <div css={iconWrapper}>
