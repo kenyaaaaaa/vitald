@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BurgerButton from "./BurgerButton";
 import Logo from "./Logo";
 import { css } from "@emotion/react";
@@ -8,37 +8,30 @@ import DesktopNav from "./DesktopNav";
 import { useRouter } from "next/router";
 
 const Header = () => {
-  const [isBurgerOpen, setBurgerOpen] = useState(false);
-  const isTop = useScrolledYZero();
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
+  const isPageTop = useScrolledYZero();
   const router = useRouter();
 
-  const isHomeAndTop: boolean = router.pathname === "/" && isTop ? true : false;
-
-  let headerStyle = normal;
-  if (isHomeAndTop) {
-    headerStyle = homeAndTop;
-  } else if (isTop) {
-    headerStyle = top;
-  }
+  const isHomeAndPageTop: boolean =
+    router.pathname === "/" && isPageTop ? true : false;
 
   return (
     <>
-      {isBurgerOpen && (
-        <div css={overlay} onClick={() => setBurgerOpen(!isBurgerOpen)}></div>
+      {isMobileNavOpen && (
+        <div
+          css={overlay}
+          onClick={() => setMobileNavOpen(!isMobileNavOpen)}
+        ></div>
       )}
-      <div css={[wrapper, headerStyle]}>
-        <header css={header}>
-          <Logo
-            isHomeAndTop={isHomeAndTop}
-            bgColor={"transparent"}
-            color={"black"}
-          />
+      <div css={headerOuter(isHomeAndPageTop, isPageTop)}>
+        <header css={[headerInner]}>
+          <Logo isHomeAndPageTop={isHomeAndPageTop} />
           <BurgerButton
-            isBurgerOpen={isBurgerOpen}
-            setBurgerOpen={() => setBurgerOpen(!isBurgerOpen)}
+            isMobileNavOpen={isMobileNavOpen}
+            setMobileNavOpen={() => setMobileNavOpen(!isMobileNavOpen)}
           />
-          <MobileNav isBurgerOpen={isBurgerOpen} />
-          <DesktopNav isHomeAndTop={isHomeAndTop} />
+          <MobileNav isMobileNavOpen={isMobileNavOpen} />
+          <DesktopNav isHomeAndPageTop={isHomeAndPageTop} />
         </header>
       </div>
     </>
@@ -52,33 +45,43 @@ const overlay = css`
   width: 100%;
   background-color: hsla(0, 0%, 0%, 0.5);
 `;
-const wrapper = css`
-  ${mqLarge} {
-    width: 100%;
-    transition: 0.5s;
-    z-index: 100;
-    position: fixed;
+
+const headerOuter = (isHomeAndPageTop: boolean, isPageTop: boolean) => {
+  return css`
+    ${mqLarge} {
+      width: 100%;
+      transition: 0.5s;
+      z-index: 100;
+      position: fixed;
+    }
+    ${changeHeaderColor(isHomeAndPageTop, isPageTop)}
+  `;
+};
+
+const changeHeaderColor = (isHomeAndPageTop: boolean, isPageTop: boolean) => {
+  if (isHomeAndPageTop) {
+    return css`
+      background-color: transparent;
+      color: white;
+    `;
+  } else if (isPageTop) {
+    return css`
+      background-color: whitesmoke;
+      color: black;
+    `;
+  } else {
+    return css`
+      background-color: whitesmoke;
+      ${mqLarge} {
+        background-color: hsla(0, 0%, 100%, 0.95);
+        color: black;
+        box-shadow: 0px 3px 20px -3px hsla(240, 70%, 20%, 0.3);
+      }
+    `;
   }
-`;
-const homeAndTop = css`
-  ${mqLarge} {
-    background-color: transparent;
-    color: white;
-  }
-`;
-const top = css`
-  background-color: whitesmoke;
-  color: black;
-`;
-const normal = css`
-  background-color: whitesmoke;
-  ${mqLarge} {
-    background-color: hsla(0, 0%, 100%, 0.95);
-    color: black;
-    box-shadow: 0px 3px 20px -3px hsla(240, 70%, 20%, 0.3);
-  }
-`;
-const header = css`
+};
+
+const headerInner = css`
   position: absolute;
   z-index: 1000;
   width: 100%;

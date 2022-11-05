@@ -4,22 +4,26 @@ import { useEffect } from "react";
 import { mqLarge } from "../../utils/style";
 
 type Props = {
-  isBurgerOpen: boolean;
-  setBurgerOpen: () => void;
+  isMobileNavOpen: boolean;
+  setMobileNavOpen: () => void;
 };
 
-const BurgerButton = ({ isBurgerOpen, setBurgerOpen }: Props) => {
+const BurgerButton = ({ isMobileNavOpen, setMobileNavOpen }: Props) => {
   const router = useRouter();
   useEffect(() => {
-    router.events.on("routeChangeComplete", () => {
-      isBurgerOpen && setBurgerOpen();
-    });
+    const closeMobileNav = () => {
+      isMobileNavOpen && setMobileNavOpen();
+    };
+    router.events.on("routeChangeComplete", closeMobileNav);
+    return () => {
+      router.events.off("routeChangeComplete", closeMobileNav);
+    };
   });
 
   return (
     <button
-      onClick={setBurgerOpen}
-      css={[hamburger, isBurgerOpen ? active : ""]}
+      onClick={setMobileNavOpen}
+      css={[hamburger, isMobileNavOpen ? active : ""]}
     >
       <span></span>
       <span></span>

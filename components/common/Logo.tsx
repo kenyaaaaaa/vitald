@@ -1,21 +1,24 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { mqLarge, mqSmall } from "../../utils/style";
+import { mqLarge } from "../../utils/style";
 
 type Props = {
-  isHomeAndTop: boolean;
-  bgColor: string | undefined;
-  color: string;
+  isHomeAndPageTop: boolean;
 };
 
-const Logo = ({ isHomeAndTop }: Props) => {
+const Logo = ({ isHomeAndPageTop }: Props) => {
   const router = useRouter();
   const isHome = router.pathname === "/";
-  console.log(isHome);
   return (
     <Link href="/">
-      <a css={[logo, isHome && spBgBlue, isHomeAndTop ? bgBlue : BgWhite]}>
+      <a
+        css={[
+          logo,
+          isHome && mobileBgBlue,
+          isHomeAndPageTop ? desktopBgBlue : bgWhite,
+        ]}
+      >
         <h1>国際バイタルディバイス有限会社</h1>
         <p>Vital Device International</p>
       </a>
@@ -61,18 +64,18 @@ const logo = css`
   }
 `;
 
-const spBgBlue = css`
+const mobileBgBlue = css`
   background-color: hsla(240, 70%, 20%, 0.8);
   color: white;
 `;
 
-const bgBlue = css`
+const desktopBgBlue = css`
   ${mqLarge} {
     background-color: hsla(240, 70%, 20%, 0.8);
     color: white;
   }
 `;
-const BgWhite = css`
+const bgWhite = css`
   ${mqLarge} {
     background-color: transparent;
     color: black;

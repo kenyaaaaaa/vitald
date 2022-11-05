@@ -3,9 +3,9 @@ import { css } from "@emotion/react";
 import { mqLarge } from "../../utils/style";
 import Link from "next/link";
 
-const MobileNav = ({ isBurgerOpen }: { isBurgerOpen: boolean }) => {
+const MobileNav = ({ isMobileNavOpen }: { isMobileNavOpen: boolean }) => {
   return (
-    <nav css={[nav, isBurgerOpen ? active : ""]}>
+    <nav css={[nav, isMobileNavOpen ? active : ""]}>
       <Link href="/">
         <a css={logo}>
           <h1>国際バイタルディバイス有限会社</h1>
@@ -81,7 +81,6 @@ const logo = css`
   display: inline-block;
   padding: 1.6rem 2.5rem 1.6rem;
   border-bottom: 1px solid white;
-  color: white;
   color: black;
   h1 {
     font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E",
@@ -117,6 +116,7 @@ const nav = css`
       font-weight: bold;
       font-size: 1.3rem;
       border-bottom: 1px solid white;
+      color: black;
       &:last-child {
         color: white;
         background: linear-gradient(

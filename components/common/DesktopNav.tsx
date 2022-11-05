@@ -3,13 +3,12 @@ import Link from "next/link";
 import { mqLarge } from "../../utils/style";
 
 type Props = {
-  isHomeAndTop: boolean;
+  isHomeAndPageTop: boolean;
 };
 
-const DesktopNav = ({ isHomeAndTop }: Props) => {
-  const borderColor = isHomeAndTop ? "white" : "black";
+const DesktopNav = ({ isHomeAndPageTop }: Props) => {
   return (
-    <nav css={nav(borderColor)}>
+    <nav css={nav(isHomeAndPageTop)}>
       <ul>
         <li>
           <Link href="/service">
@@ -41,7 +40,7 @@ const DesktopNav = ({ isHomeAndTop }: Props) => {
   );
 };
 
-const nav = (borderColor: string = "white") => css`
+const nav = (isHomeAndPageTop: boolean) => css`
   display: none;
   ${mqLarge} {
     display: block;
@@ -62,7 +61,7 @@ const nav = (borderColor: string = "white") => css`
           content: "";
           position: absolute;
           bottom: 0;
-          background: ${borderColor};
+          background: ${isHomeAndPageTop ? "white" : "black"};
           height: 1px;
           width: 100%;
           transform: scale(0, 1);
