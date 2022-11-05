@@ -2,6 +2,7 @@ import Image from "next/image";
 import { css } from "@emotion/react";
 import { mqLarge } from "../../utils/style";
 import Link from "next/link";
+import { navItems, NavItem } from "../../const/navItems";
 
 const MobileNav = ({ isMobileNavOpen }: { isMobileNavOpen: boolean }) => {
   return (
@@ -13,64 +14,20 @@ const MobileNav = ({ isMobileNavOpen }: { isMobileNavOpen: boolean }) => {
         </a>
       </Link>
       <ul>
-        <li>
-          <Link href="/service">
-            <a>
-              <div css={iconWrapper}>
-                <Image src="/icons/gear.png" width="26px" height="26px" />
-              </div>
-              事業内容
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/product">
-            <a>
-              <div css={iconWrapper}>
-                <Image
-                  src="/icons/robotic-hand.png"
-                  width="26px"
-                  height="26px"
-                />
-              </div>
-              製作実績
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/company">
-            <a>
-              <div css={iconWrapper}>
-                <Image src="/icons/building.png" width="26px" height="26px" />
-              </div>
-              会社概要
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/faq">
-            <a>
-              <div css={iconWrapper}>
-                <Image
-                  src="/icons/conversation.png"
-                  width="26px"
-                  height="26px"
-                />
-              </div>
-              よくある質問
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact">
-            <a>
-              <div css={iconWrapper}>
-                <Image src="/icons/email.png" width="26px" height="26px" />
-              </div>
-              お問い合わせ
-            </a>
-          </Link>
-        </li>
+        {navItems.map((navItem: NavItem) => {
+          return (
+            <li>
+              <Link href={navItem.path}>
+                <a>
+                  <div css={iconWrapper}>
+                    <Image src={navItem.iconPath} width="26px" height="26px" />
+                  </div>
+                  {navItem.name}
+                </a>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

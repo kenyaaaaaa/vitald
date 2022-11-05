@@ -3,8 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { mqLarge } from "../../utils/style";
 import ProductCard from "../home/ProductCard";
-import { ProductData } from "../../const/ProductData";
-import { productData } from "../../const/ProductData";
+import { ProductData, productData } from "../../const/ProductData";
 
 const Products = () => {
   let targetProducts = productData;

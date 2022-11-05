@@ -1,9 +1,7 @@
 import { css } from "@emotion/react";
 import ProductCard from "./ProductCard";
 import ReadMore from "../common/ReadMore";
-import { mqLarge } from "../../utils/style";
-import { ProductData } from "../../const/ProductData";
-import { productData } from "../../const/ProductData";
+import { ProductData, productData } from "../../const/ProductData";
 
 const targetProducts = productData.filter((product) => {
   switch (product.pid) {

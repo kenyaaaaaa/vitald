@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { mqLarge } from "../../utils/style";
+import { navItems, NavItem } from "../../const/navItems";
 
 const Footer = () => {
   const router = useRouter();
@@ -16,31 +17,15 @@ const Footer = () => {
         <div css={wrapper}>
           <div>
             <ul>
-              <li>
-                <Link href={"/service"}>
-                  <a>事業内容</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={"/product"}>
-                  <a>製作実績</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={"/company"}>
-                  <a>会社概要</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={"/faq"}>
-                  <a>よくある質問</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={"/contact"}>
-                  <a>お問い合わせ</a>
-                </Link>
-              </li>
+              {navItems.map((navItem: NavItem) => {
+                return (
+                  <li>
+                    <Link href={navItem.path}>
+                      <a>{navItem.name}</a>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div>
