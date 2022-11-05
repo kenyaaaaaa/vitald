@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 import { mqLarge } from "../../const/Breakpoint";
-import { navItems, NavItem } from "../../const/NavItems";
+import { navItems, NavItem } from "../../const/NavItem";
 
 type Props = {
   isHomeAndPageTop: boolean;

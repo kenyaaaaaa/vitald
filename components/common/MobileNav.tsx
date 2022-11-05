@@ -2,7 +2,7 @@ import Image from "next/image";
 import { css } from "@emotion/react";
 import { mqLarge } from "../../const/Breakpoint";
 import Link from "next/link";
-import { navItems, NavItem } from "../../const/NavItems";
+import { navItems, NavItem } from "../../const/NavItem";
 
 const MobileNav = ({ isMobileNavOpen }: { isMobileNavOpen: boolean }) => {
   return (

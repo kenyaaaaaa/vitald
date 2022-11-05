@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { mqLarge } from "../../const/Breakpoint";
-import { navItems, NavItem } from "../../const/NavItems";
+import { navItems, NavItem } from "../../const/NavItem";
 
 const Footer = () => {
   const router = useRouter();
