@@ -10,11 +10,11 @@ import { useRouter } from "next/router";
 
 const Header = () => {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
-  const isPageTop = useNotScrolledY();
+  const isNotScrolledY = useNotScrolledY();
   const router = useRouter();
 
-  const isHomeAndPageTop: boolean =
-    router.pathname === "/" && isPageTop ? true : false;
+  const isHomeAndNotScrolledY: boolean =
+    router.pathname === "/" && isNotScrolledY ? true : false;
 
   return (
     <>
@@ -24,15 +24,15 @@ const Header = () => {
           onClick={() => setMobileNavOpen(!isMobileNavOpen)}
         ></div>
       )}
-      <div css={headerOuter(isHomeAndPageTop, isPageTop)}>
+      <div css={headerOuter(isHomeAndNotScrolledY, isNotScrolledY)}>
         <header css={[headerInner]}>
-          <Logo isHomeAndPageTop={isHomeAndPageTop} />
+          <Logo isHomeAndNotScrolledY={isHomeAndNotScrolledY} />
           <BurgerButton
             isMobileNavOpen={isMobileNavOpen}
             setMobileNavOpen={() => setMobileNavOpen(!isMobileNavOpen)}
           />
           <MobileNav isMobileNavOpen={isMobileNavOpen} />
-          <DesktopNav isHomeAndPageTop={isHomeAndPageTop} />
+          <DesktopNav isHomeAndNotScrolledY={isHomeAndNotScrolledY} />
         </header>
       </div>
     </>
@@ -47,7 +47,10 @@ const overlay = css`
   background-color: hsla(0, 0%, 0%, 0.5);
 `;
 
-const headerOuter = (isHomeAndPageTop: boolean, isPageTop: boolean) => {
+const headerOuter = (
+  isHomeAndNotScrolledY: boolean,
+  isNotScrolledY: boolean
+) => {
   return css`
     ${mqLarge} {
       width: 100%;
@@ -55,17 +58,20 @@ const headerOuter = (isHomeAndPageTop: boolean, isPageTop: boolean) => {
       z-index: 100;
       position: fixed;
     }
-    ${changeHeaderColor(isHomeAndPageTop, isPageTop)}
+    ${changeHeaderColor(isHomeAndNotScrolledY, isNotScrolledY)}
   `;
 };
 
-const changeHeaderColor = (isHomeAndPageTop: boolean, isPageTop: boolean) => {
-  if (isHomeAndPageTop) {
+const changeHeaderColor = (
+  isHomeAndNotScrolledY: boolean,
+  isNotScrolledY: boolean
+) => {
+  if (isHomeAndNotScrolledY) {
     return css`
       background-color: transparent;
       color: white;
     `;
-  } else if (isPageTop) {
+  } else if (isNotScrolledY) {
     return css`
       background-color: whitesmoke;
       color: black;

@@ -4,12 +4,12 @@ import { mqLarge } from "../../const/Breakpoint";
 import { navItems, NavItem } from "../../const/NavItem";
 
 type Props = {
-  isHomeAndPageTop: boolean;
+  isHomeAndNotScrolledY: boolean;
 };
 
-const DesktopNav = ({ isHomeAndPageTop }: Props) => {
+const DesktopNav = ({ isHomeAndNotScrolledY }: Props) => {
   return (
-    <nav css={nav(isHomeAndPageTop)}>
+    <nav css={nav(isHomeAndNotScrolledY)}>
       <ul>
         {navItems.map((navItem: NavItem, index: number) => {
           return (
@@ -25,7 +25,7 @@ const DesktopNav = ({ isHomeAndPageTop }: Props) => {
   );
 };
 
-const nav = (isHomeAndPageTop: boolean) => css`
+const nav = (isHomeAndNotScrolledY: boolean) => css`
   display: none;
   ${mqLarge} {
     display: block;
@@ -46,7 +46,7 @@ const nav = (isHomeAndPageTop: boolean) => css`
           content: "";
           position: absolute;
           bottom: 0;
-          background: ${isHomeAndPageTop ? "white" : "black"};
+          background: ${isHomeAndNotScrolledY ? "white" : "black"};
           height: 1px;
           width: 100%;
           transform: scale(0, 1);

@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 import { mqLarge } from "../../const/Breakpoint";
 
 type Props = {
-  isHomeAndPageTop: boolean;
+  isHomeAndNotScrolledY: boolean;
 };
 
-const Logo = ({ isHomeAndPageTop }: Props) => {
+const Logo = ({ isHomeAndNotScrolledY }: Props) => {
   const router = useRouter();
   const isHome = router.pathname === "/";
   return (
@@ -16,7 +16,7 @@ const Logo = ({ isHomeAndPageTop }: Props) => {
         css={[
           logo,
           isHome && mobileBgBlue,
-          isHomeAndPageTop ? desktopBgBlue : bgWhite,
+          isHomeAndNotScrolledY ? desktopBgBlue : bgWhite,
         ]}
       >
         <h1>国際バイタルディバイス有限会社</h1>
