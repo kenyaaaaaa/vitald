@@ -1,4 +1,3 @@
-import { useModal } from "react-hooks-use-modal";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { css } from "@emotion/react";

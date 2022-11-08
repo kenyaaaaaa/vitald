@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BurgerButton from "./BurgerButton";
 import Logo from "./Logo";
 import { css } from "@emotion/react";
-import { useNotScrolledY } from "../../utils/UseNotScrolledY";
 import { mqLarge } from "../../const/Breakpoint";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
@@ -39,27 +38,23 @@ const Header = () => {
   );
 };
 
-const overlay = css`
-  position: absolute;
-  z-index: 100;
-  height: 100%;
-  width: 100%;
-  background-color: hsla(0, 0%, 0%, 0.5);
-`;
+const useNotScrolledY = () => {
+  const [isScrolledYZero, setNotScrolledY] = useState(true);
 
-const headerOuter = (
-  isHomeAndNotScrolledY: boolean,
-  isNotScrolledY: boolean
-) => {
-  return css`
-    ${mqLarge} {
-      width: 100%;
-      transition: 0.5s;
-      z-index: 100;
-      position: fixed;
-    }
-    ${changeHeaderColor(isHomeAndNotScrolledY, isNotScrolledY)}
-  `;
+  useEffect(() => {
+    const handler = () => {
+      if (window.scrollY == 0) {
+        setNotScrolledY(true);
+      } else {
+        setNotScrolledY(false);
+      }
+    };
+    window.addEventListener("scroll", handler);
+    return () => {
+      window.removeEventListener("scroll", handler);
+    };
+  }, []);
+  return isScrolledYZero;
 };
 
 const changeHeaderColor = (
@@ -86,6 +81,29 @@ const changeHeaderColor = (
       }
     `;
   }
+};
+
+const overlay = css`
+  position: absolute;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background-color: hsla(0, 0%, 0%, 0.5);
+`;
+
+const headerOuter = (
+  isHomeAndNotScrolledY: boolean,
+  isNotScrolledY: boolean
+) => {
+  return css`
+    ${mqLarge} {
+      width: 100%;
+      transition: 0.5s;
+      z-index: 100;
+      position: fixed;
+    }
+    ${changeHeaderColor(isHomeAndNotScrolledY, isNotScrolledY)}
+  `;
 };
 
 const headerInner = css`

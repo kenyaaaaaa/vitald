@@ -5,9 +5,8 @@ import VideoSection from "../components/pages/home/VideoSection";
 import ContactInfo from "../components/common/ContactInfo";
 import Footer from "../components/common/Footer";
 import Head from "next/head";
-import { setViewportHeight } from "../utils/SetViewportHeight";
 import { css } from "@emotion/react";
-import type { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import type { NextPageWithLayout } from "./_app";
 import ServiceSection from "../components/pages/home/ServiceSection";
 
@@ -43,6 +42,27 @@ HomePage.getLayout = function getLayout(page: ReactElement) {
       </div>
     </>
   );
+};
+
+const setViewportHeight = () => {
+  useEffect(() => {
+    const setViewportHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    // 画面の横幅にサイズ変動がある場合、高さを再取得
+    let viewWidth = window.innerWidth;
+    window.addEventListener("resize", () => {
+      if (viewWidth === window.innerWidth) {
+        return;
+      }
+      viewWidth = window.innerWidth;
+      setViewportHeight();
+    });
+    setViewportHeight();
+    console.log("画面リサイズ");
+  }, []);
 };
 
 const wrapper = css`

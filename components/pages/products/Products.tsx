@@ -7,18 +7,30 @@ import { ProductData, productData } from "../../../const/ProductData";
 
 const Products = () => {
   let targetProducts: ProductData[] = productData;
-  type category = "all" | "automachine" | "experiment" | "inspection" | "robot";
+
+  type category = "all" | "autoMachine" | "experiment" | "inspection" | "robot";
+
   const [categoryState, setCategory] = useState<category>("all");
+
+  const categories = [
+    { ja: "すべて", en: "all" },
+    { ja: "自動装置", en: "autoMachine" },
+    { ja: "実験装置", en: "experiment" },
+    { ja: "検査装置", en: "inspection" },
+    { ja: "ロボット", en: "robot" },
+  ];
+
   const changeCategory = (e: any) => {
     setCategory(e.target.value);
   };
+
   switch (categoryState) {
     case "all":
       targetProducts = productData;
       break;
-    case "automachine":
+    case "autoMachine":
       targetProducts = productData.filter(
-        (product) => product.category === "automachine"
+        (product) => product.category === "autoMachine"
       );
       break;
     case "experiment":
@@ -53,58 +65,18 @@ const Products = () => {
       </div>
       <div css={container}>
         <form css={categoryWrapper}>
-          {/* <div > */}
-          <div css={category}>
-            <input
-              type="checkbox"
-              id="all"
-              value="all"
-              checked={categoryState === "all"}
-              onChange={changeCategory}
-            />
-            <label htmlFor="all">すべて</label>
-          </div>
-          <div css={category}>
-            <input
-              type="checkbox"
-              id="automachine"
-              value="automachine"
-              checked={categoryState === "automachine"}
-              onChange={changeCategory}
-            />
-            <label htmlFor="automachine">自動装置</label>
-          </div>
-          <div css={category}>
-            <input
-              type="checkbox"
-              id="experiment"
-              value="experiment"
-              checked={categoryState === "experiment"}
-              onChange={changeCategory}
-            />
-            <label htmlFor="experiment">実験装置</label>
-          </div>
-          <div css={category}>
-            <input
-              type="checkbox"
-              id="inspection"
-              value="inspection"
-              checked={categoryState === "inspection"}
-              onChange={changeCategory}
-            />
-            <label htmlFor="inspection">検査装置</label>
-          </div>
-          <div css={category}>
-            <input
-              type="checkbox"
-              id="robot"
-              value="robot"
-              checked={categoryState === "robot"}
-              onChange={changeCategory}
-            />
-            <label htmlFor="robot">ロボット</label>
-          </div>
-          {/* </div> */}
+          {categories?.map((category, index) => (
+            <div css={categoryButton} key={index}>
+              <input
+                type="checkbox"
+                id={category.en}
+                value={category.en}
+                checked={categoryState === category.en}
+                onChange={changeCategory}
+              />
+              <label htmlFor={category.en}>{category.ja}</label>
+            </div>
+          ))}
         </form>
         <div css={productWrapper}>
           <div css={cardWrapper}>
@@ -126,7 +98,7 @@ const Products = () => {
   );
 };
 
-const category = css`
+const categoryButton = css`
   text-align: center;
   input {
     display: none;
