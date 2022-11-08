@@ -1,5 +1,5 @@
 import Header from "../components/common/Header";
-import Hero from "../components/pages/home/Hero";
+import HeroSection from "../components/pages/home/HeroSection";
 import ProductSection from "../components/pages/home/ProductSection";
 import VideoSection from "../components/pages/home/VideoSection";
 import ContactInfo from "../components/common/ContactInfo";
@@ -16,7 +16,7 @@ const HomePage: NextPageWithLayout = () => {
 
   return (
     <>
-      <Hero />
+      <HeroSection />
       <ServiceSection />
       <ProductSection />
       <VideoSection />

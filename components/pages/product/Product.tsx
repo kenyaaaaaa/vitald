@@ -9,7 +9,7 @@ const Product = () => {
   const router = useRouter();
   const { pid } = router.query;
 
-  // SSG時にrouter.queryの戻り値はundefinedになる
+  // SSG時にrouter.queryの戻り値がundefinedになるため、やむを得ずundefinedとのユニオン型にしている
   const targetProduct: ProductData | undefined = productData.find((product) => {
     return product.pid === pid;
   });

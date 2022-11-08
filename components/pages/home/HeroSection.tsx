@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { mqLarge } from "../../../const/Breakpoint";
 
-const Hero = () => {
+const HeroSection = () => {
   return (
     <section>
       <div css={heroImg}>
@@ -90,4 +90,4 @@ const heroMsg = css`
   }
 `;
 
-export default Hero;
+export default HeroSection;
