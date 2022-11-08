@@ -8,25 +8,6 @@ import DesktopNav from "./DesktopNav";
 import { useRouter } from "next/router";
 
 const Header = () => {
-  const useNotScrolledY = () => {
-    const [isScrolledYZero, setNotScrolledY] = useState(true);
-
-    useEffect(() => {
-      const handler = () => {
-        if (window.scrollY == 0) {
-          setNotScrolledY(true);
-        } else {
-          setNotScrolledY(false);
-        }
-      };
-      window.addEventListener("scroll", handler);
-      return () => {
-        window.removeEventListener("scroll", handler);
-      };
-    }, []);
-    return isScrolledYZero;
-  };
-
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
   const isNotScrolledY = useNotScrolledY();
   const router = useRouter();
@@ -55,6 +36,25 @@ const Header = () => {
       </div>
     </>
   );
+};
+
+const useNotScrolledY = () => {
+  const [isScrolledYZero, setNotScrolledY] = useState(true);
+
+  useEffect(() => {
+    const handler = () => {
+      if (window.scrollY == 0) {
+        setNotScrolledY(true);
+      } else {
+        setNotScrolledY(false);
+      }
+    };
+    window.addEventListener("scroll", handler);
+    return () => {
+      window.removeEventListener("scroll", handler);
+    };
+  }, []);
+  return isScrolledYZero;
 };
 
 const changeHeaderColor = (
