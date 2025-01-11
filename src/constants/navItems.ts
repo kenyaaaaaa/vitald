@@ -10,4 +10,4 @@ export const NavItems: NavItem[] = [
   { name: "会社概要", path: "/company", iconPath: "/icons/building.png" },
   { name: "よくある質問", path: "/faq", iconPath: "/icons/conversation.png" },
   { name: "お問い合わせ", path: "/contact", iconPath: "/icons/email.png" },
-] as const;
+];
