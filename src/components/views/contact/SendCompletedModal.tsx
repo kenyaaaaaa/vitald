@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { css } from "@emotion/react";
-import { MediaQueries } from "styles/mediaQueries";
 
 const SendCompletedModal = () => {
   return (

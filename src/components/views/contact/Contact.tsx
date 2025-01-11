@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { MediaQueries } from "@styles/mediaQueries";
 import SendCompletedModal from "./SendCompletedModal";
 import Modal from 'react-modal';
-import styles from '../../../styles/modalStyles.module.css'; 
+import styles from '@styles/modalStyles.module.css'; 
 
 const Contact = () => {
   const [isOpen, setIsOpen] = useState(false);
