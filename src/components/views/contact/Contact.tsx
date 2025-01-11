@@ -7,16 +7,12 @@ import { motion } from "framer-motion";
 import { MediaQueries } from "@styles/mediaQueries";
 import SendCompletedModal from "./SendCompletedModal";
 import Modal from 'react-modal';
+import styles from '../../../styles/modalStyles.module.css'; 
 
 const Contact = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const [isLoading, setLoading] = useState(false);
-
-  // const [Modal, open, close, isOpen] = useModal("__next", {
-  //   preventScroll: false,
-  //   closeOnOverlayClick: false,
-  // });
 
   type FormInputs = {
     name: string;
@@ -155,13 +151,15 @@ const Contact = () => {
         </div>
       </div>
       <Modal
-      isOpen={isOpen}  
+      isOpen={isOpen}
+      className={styles.modalStyles}
       >
         <SendCompletedModal />
       </Modal>
     </>
   );
 };
+
 
 const errorMessage = css`
   font-size: 1rem;

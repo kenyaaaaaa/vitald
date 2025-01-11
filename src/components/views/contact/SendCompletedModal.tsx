@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { css } from "@emotion/react";
+import { MediaQueries } from "styles/mediaQueries";
 
 const SendCompletedModal = () => {
   return (
@@ -8,7 +9,6 @@ const SendCompletedModal = () => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      css={modalcss}
     >
       <h1>お問い合わせありがとうございます。</h1>
       <div>
@@ -26,16 +26,4 @@ const SendCompletedModal = () => {
     </motion.div>
   );
 };
-
-
-const modalcss = css`
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    background-color: whitesmoke;
-
-`;
 export default SendCompletedModal;
