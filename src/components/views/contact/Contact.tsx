@@ -4,17 +4,19 @@ import { FieldValues, useForm } from "react-hook-form";
 import axios from "axios";
 import BeatLoader from "react-spinners/BeatLoader";
 import { motion } from "framer-motion";
-import { useModal } from "react-hooks-use-modal";
 import { MediaQueries } from "@styles/mediaQueries";
 import SendCompletedModal from "./SendCompletedModal";
+import Modal from 'react-modal';
 
 const Contact = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
   const [isLoading, setLoading] = useState(false);
 
-  const [Modal, open, close, isOpen] = useModal("__next", {
-    preventScroll: false,
-    closeOnOverlayClick: false,
-  });
+  // const [Modal, open, close, isOpen] = useModal("__next", {
+  //   preventScroll: false,
+  //   closeOnOverlayClick: false,
+  // });
 
   type FormInputs = {
     name: string;
@@ -37,7 +39,7 @@ const Contact = () => {
       .post("/.netlify/functions/sendMail", data)
       .then((res) => {
         setLoading(false);
-        open();
+        openModal();
         console.log(res);
       })
       .catch(() => {
@@ -152,7 +154,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Modal>
+      <Modal
+      isOpen={isOpen}  
+      >
         <SendCompletedModal />
       </Modal>
     </>
