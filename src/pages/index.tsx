@@ -15,9 +15,9 @@ const HomePage = () => {
       jsonLd={jsonLd}
     >
       <HeroSection />
+      <ServiceSection />
       <ProductSection />
       <VideoSection />
-      <ServiceSection />
     </Layout>
   );
 };
