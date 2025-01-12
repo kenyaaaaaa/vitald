@@ -14,13 +14,14 @@ const ProductCard = ({ pid, imageUrl, title, brief }: Props) => {
   return (
     <article css={cardWrapper}>
       <Link href={`/product/${pid}`}>
-        <a>
+        
           <div css={card}>
             <div css={imageWrapper}>
               <Image
                 src={`/images/products/${imageUrl}`}
-                width="320px"
-                height="180px"
+                width={320}
+                height={180}
+                alt={`${title}`}
               />
             </div>
             <div css={desc}>
@@ -28,7 +29,7 @@ const ProductCard = ({ pid, imageUrl, title, brief }: Props) => {
               <p>{brief}</p>
             </div>
           </div>
-        </a>
+        
       </Link>
     </article>
   );

@@ -19,7 +19,7 @@ const SendCompletedModal = () => {
       </div>
 
       <Link href="/">
-        <a>ホームに戻る・</a>
+        ホームに戻る・
       </Link>
     </motion.div>
   );

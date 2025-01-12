@@ -15,7 +15,7 @@ const DesktopNav = ({ isHomeAndScrolledTop }: Props) => {
           return (
             <li key={index}>
               <Link href={navItem.path}>
-                <a>{navItem.name}</a>
+                {navItem.name}
               </Link>
             </li>
           );

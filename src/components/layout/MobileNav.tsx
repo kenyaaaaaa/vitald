@@ -7,23 +7,23 @@ import { navItems, NavItem } from "@constants/navItems";
 const MobileNav = ({ isMobileNavOpen }: { isMobileNavOpen: boolean }) => {
   return (
     <nav css={[nav, isMobileNavOpen ? active : ""]}>
-      <Link href="/">
-        <a css={logo}>
+      <Link href="/" css={logo}>
+
           <h1>国際バイタルディバイス有限会社</h1>
           <p>Vital Device International</p>
-        </a>
+        
       </Link>
       <ul>
         {navItems.map((navItem: NavItem, index: number) => {
           return (
             <li key={index}>
               <Link href={navItem.path}>
-                <a>
+                
                   <div css={iconWrapper}>
-                    <Image src={navItem.iconPath} width="26px" height="26px" />
+                    <Image src={navItem.iconPath} width={26} height={26} alt={`${navItem.name}`} />
                   </div>
                   {navItem.name}
-                </a>
+                
               </Link>
             </li>
           );
