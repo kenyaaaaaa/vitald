@@ -41,6 +41,7 @@ const cardWrapper = css`
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
 `;
 
 const wrapper = css`

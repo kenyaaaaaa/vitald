@@ -1,41 +1,73 @@
 import { css } from "@emotion/react";
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 
-const VideoCard = ({ videoId }: { videoId: string }) => {
-  const [isThumbnail, setIsThumbnail] = useState(true);
+type Props = {
+  videoId: string;
+};
+
+const VideoCard = ({ videoId }: Props) => {
+  // 再生中かどうかを state で管理
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
-    <section css={cardWrapper}>
-      {isThumbnail ? (
-        <div css={ytIcon}>
-          <Image
-            src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
-            onClick={() => setIsThumbnail(false)}
-            width="320px"
-            height="180px"
-          />
-        </div>
-      ) : (
+    <section css={wrapper}>
+      {isPlaying ? (
         <iframe
-          width="320px"
-          height="180px"
+          css={iframeStyle}
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-          title="YouTube video player"
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+          title="YouTube video player"
+        />
+      ) : (
+        <div css={thumbnailWrapper} onClick={() => setIsPlaying(true)}>
+          <div css={youtubeIcon}></div>
+          <Image
+            src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+            alt="YouTube video thumbnail"
+            layout="fill"
+          />
+        </div>
       )}
     </section>
   );
 };
 
-const cardWrapper = css`
-  text-align: center;
-  margin-bottom: 5rem;
+export default VideoCard;
+
+/* -- 以下、Emotion CSS -- */
+
+// 親要素: アスペクト比 16:9、幅100%、最大幅640pxなど
+const wrapper = css`
   position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto; /* センター寄せはお好みで */
+  aspect-ratio: 16 / 9;
 `;
-const ytIcon = css`
+
+// サムネイル用のラッパ
+const thumbnailWrapper = css`
+  position: relative; 
+  width: 100%;
+  height: 100%; 
+  cursor: pointer;
+  margin-bottom: 4rem;
+  & > span > img {
+    object-fit: cover;
+  }
+`;
+
+// iframe をアスペクト比を保ったまま全画面埋めたい場合
+const iframeStyle = css`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+`;
+
+const youtubeIcon = css`
   ::before {
     position: absolute;
     background: url(/icons/yt-icon-mono.webp);
@@ -55,5 +87,3 @@ const ytIcon = css`
     background-image: url(/icons/yt-icon-red.webp);
   }
 `;
-
-export default VideoCard;

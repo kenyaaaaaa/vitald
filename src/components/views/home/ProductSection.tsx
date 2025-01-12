@@ -3,17 +3,9 @@ import ProductCard from "./ProductCard";
 import ReadMore from "../../ui/ReadMoreButton";
 import { productItems, ProductItem } from "../../../constants/productItems";
 
-const targetProducts = productItems.filter((product) => {
-  switch (product.pid) {
-    case "1":
-    case "2":
-    case "3":
-    case "4":
-    case "5":
-    case "11":
-      return true;
-  }
-});
+const targetProducts = productItems.filter((product) => 
+  ["1", "2", "3", "4", "5", "11"].includes(product.pid)
+);
 
 const ProductSection = () => {
   return (

@@ -4,17 +4,7 @@ import ReadMore from "../../ui/ReadMoreButton";
 import { productItems } from "../../../constants/productItems";
 
 const targetVideoIds : string[] = productItems
-  .filter((product) => {
-    switch (product.pid) {
-      case "1":
-      case "2":
-      case "12":
-      case "4":
-      case "5":
-      case "11":
-        return true;
-    }
-  })
+  .filter((product) => ["1", "2", "12", "4", "5", "11"].includes(product.pid))
   .map((product) => product.videoIds[0]) as string[];
 
 const VideoSection = () => {
@@ -29,6 +19,7 @@ const VideoSection = () => {
             return <VideoCard videoId={videoId} key={index} />;
           })}
         </div>
+        
         <ReadMore
           bgColor={"whitesmoke"}
           text={"すべての動画を見る"}
@@ -73,6 +64,7 @@ const cardWrapper = css`
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
 `;
 
 export default VideoSection;
