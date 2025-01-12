@@ -21,7 +21,7 @@ const Footer = () => {
                 return (
                   <li key={index}>
                     <Link href={navItem.path}>
-                      <a>{navItem.name}</a>
+                      {navItem.name}
                     </Link>
                   </li>
                 );

@@ -9,10 +9,10 @@ const ServiceSection = () => {
         <div css={wrapperInner}>
           <div css={imgWrapper}>
             <div css={draft2dImg}>
-              <Image src={`/images/draft2D.jpg`} width="300px" height="200px" />
+              <Image src={`/images/draft2D.jpg`} width={300} height={200} alt="cad設計図" />
             </div>
             <div css={draft3dImg}>
-              <Image src={`/images/draft3D.jpg`} width="300px" height="200px" />
+              <Image src={`/images/draft3D.jpg`} width={300} height={200} alt="cad設計図" />
             </div>
           </div>
           <div>

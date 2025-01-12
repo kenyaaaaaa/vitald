@@ -18,7 +18,7 @@ const Video = () => {
         </div>
         <div css={videoLink}>
           <Link href={"/product"}>
-            <a>実績一覧へ</a>
+            実績一覧へ
           </Link>
         </div>
       </div>

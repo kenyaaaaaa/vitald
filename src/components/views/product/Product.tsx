@@ -24,8 +24,9 @@ const Product = () => {
           <div css={right}>
             <Image
               src={`/images/products/${targetProduct?.imageUrl.detail}`}
-              width="400px"
-              height="300px"
+              width={400}
+              height={300}
+              alt={`${targetProduct?.title}`}
             />
           </div>
         </div>
@@ -47,7 +48,7 @@ const Product = () => {
         )}
         <div css={backLink}>
           <Link href="/product">
-            <a>実績一覧に戻る</a>
+            実績一覧に戻る
           </Link>
         </div>
       </div>

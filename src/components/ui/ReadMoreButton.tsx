@@ -12,9 +12,9 @@ const ReadMore = ({ bgColor, text, path }: Props) => {
   return (
     <div css={readMore(bgColor)}>
       <Link href={path}>
-        <a>
+        
           <span>{text}・</span>
-        </a>
+        
       </Link>
     </div>
   );

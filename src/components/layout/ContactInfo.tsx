@@ -19,7 +19,7 @@ const Contact = () => {
         <div css={[mail, contactInner]}>
           <h3>サイトでのお問い合わせ</h3>
           <Link href="/contact">
-            <a>お問い合わせフォームへ・</a>
+            お問い合わせフォームへ・
           </Link>
           <p>
             機械の設計製作のご相談、ご質問が

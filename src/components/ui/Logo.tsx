@@ -11,17 +11,11 @@ const Logo = ({ isHomeAndScrolledTop }: Props) => {
   const router = useRouter();
   const isHome = router.pathname === "/";
   return (
-    <Link href="/">
-      <a
-        css={[
-          logo,
-          isHome && mobileBgBlue,
-          isHomeAndScrolledTop ? desktopBgBlue : bgWhite,
-        ]}
-      >
+    <Link href="/" css={[logo,isHome && mobileBgBlue,isHomeAndScrolledTop ? desktopBgBlue : bgWhite,]}>
+
         <h1>国際バイタルディバイス有限会社</h1>
         <p>Vital Device International</p>
-      </a>
+      
     </Link>
   );
 };

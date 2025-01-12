@@ -34,7 +34,7 @@ const Products = () => {
         </div>
         <div css={videoLink}>
           <Link href={"/video"}>
-            <a>動画で見る </a>
+            動画で見る
           </Link>
         </div>
       </div>

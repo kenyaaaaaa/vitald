@@ -26,7 +26,8 @@ const VideoCard = ({ videoId }: Props) => {
           <Image
             src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
             alt="YouTube video thumbnail"
-            layout="fill"
+            fill
+            sizes="(max-width: 768px) 80vw,(max-width: 1200px) 20vw,20vw"
           />
         </div>
       )}
