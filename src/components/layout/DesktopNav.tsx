@@ -4,12 +4,12 @@ import { MediaQueries } from "@styles/mediaQueries";
 import { navItems, NavItem } from "@constants/navItems";
 
 type Props = {
-  isHomeAndNotScrolledY: boolean;
+  isHomeAndScrolledTop: boolean;
 };
 
-const DesktopNav = ({ isHomeAndNotScrolledY }: Props) => {
+const DesktopNav = ({ isHomeAndScrolledTop }: Props) => {
   return (
-    <nav css={nav(isHomeAndNotScrolledY)}>
+    <nav css={nav(isHomeAndScrolledTop)}>
       <ul>
         {navItems.map((navItem: NavItem, index: number) => {
           return (

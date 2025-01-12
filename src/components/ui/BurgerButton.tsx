@@ -5,24 +5,28 @@ import { MediaQueries } from "@styles/mediaQueries";
 
 type Props = {
   isMobileNavOpen: boolean;
-  setMobileNavOpen: () => void;
+  setIsMobileNavOpen: (value: boolean) => void; 
 };
 
-const BurgerButton = ({ isMobileNavOpen, setMobileNavOpen }: Props) => {
+const BurgerButton = ({ isMobileNavOpen, setIsMobileNavOpen }: Props) => {
   const router = useRouter();
+
   useEffect(() => {
-    const closeMobileNav = () => {
-      isMobileNavOpen && setMobileNavOpen();
+    const closeMobileNav = () => setIsMobileNavOpen(false);
+    const handleRouteChange = () => {
+      closeMobileNav();
     };
-    router.events.on("routeChangeComplete", closeMobileNav);
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off("routeChangeComplete", closeMobileNav);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
-  });
+  },[]);
 
   return (
     <button
-      onClick={setMobileNavOpen}
+      onClick={() => {
+        setIsMobileNavOpen(!isMobileNavOpen);
+      }}
       css={[hamburger, isMobileNavOpen ? active : ""]}
     >
       <span></span>

@@ -9,6 +9,7 @@ const ContactPage = () => {
     <Layout 
       pageTitle={title}
       pageDescription={description}
+      showContactInfo={false}
       jsonLd={jsonLd}
     >
       <Contact />

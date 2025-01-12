@@ -13,17 +13,17 @@ interface LayoutProps {
   noindex?: boolean;
 }
 
-const Layout = ({ 
-  children, 
+const Layout = ({
+  children,
   showContactInfo = true,
   pageTitle,
   pageDescription,
   jsonLd,
-  noindex
+  noindex,
 }: LayoutProps) => {
   return (
-    <>
-      <SEO 
+    <div css={wrapper}>
+      <SEO
         pageTitle={pageTitle}
         pageDescription={pageDescription}
         jsonLd={jsonLd}
@@ -33,13 +33,18 @@ const Layout = ({
         <Header />
         <main>
           {children}
+          {showContactInfo && <ContactInfo />}
         </main>
-        {showContactInfo && <ContactInfo />}
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
+
+// モバイルメニュー表示時のoverlayのため
+const wrapper = css`
+  position: relative;
+`;
 
 const layoutStyle = css`
   min-height: 100vh;

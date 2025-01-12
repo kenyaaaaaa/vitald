@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 import { MediaQueries } from "@styles/mediaQueries";
 
 type Props = {
-  isHomeAndNotScrolledY: boolean;
+  isHomeAndScrolledTop: boolean;
 };
 
-const Logo = ({ isHomeAndNotScrolledY }: Props) => {
+const Logo = ({ isHomeAndScrolledTop }: Props) => {
   const router = useRouter();
   const isHome = router.pathname === "/";
   return (
@@ -16,7 +16,7 @@ const Logo = ({ isHomeAndNotScrolledY }: Props) => {
         css={[
           logo,
           isHome && mobileBgBlue,
-          isHomeAndNotScrolledY ? desktopBgBlue : bgWhite,
+          isHomeAndScrolledTop ? desktopBgBlue : bgWhite,
         ]}
       >
         <h1>国際バイタルディバイス有限会社</h1>

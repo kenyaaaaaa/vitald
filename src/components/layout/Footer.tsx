@@ -6,7 +6,7 @@ import { navItems, NavItem } from "@constants/navItems";
 
 const Footer = () => {
   const router = useRouter();
-  const isContactPage: boolean = router.pathname === "/contact";
+  const isContactPage = router.pathname === "/contact";
   return (
     <footer css={[footer, isContactPage ? paddingNarrow : paddingWide]}>
       <div css={container}>
