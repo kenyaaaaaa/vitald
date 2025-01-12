@@ -198,7 +198,7 @@ const left = css`
   }
 `;
 const required = css`
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-weight: bold;
   text-align: right;
   width: 100%;

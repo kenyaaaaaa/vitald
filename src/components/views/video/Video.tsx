@@ -6,11 +6,9 @@ import { productItems } from "@constants/productItems";
 
 const Video = () => {
   const targetVideoIds = productItems
-    .filter((product) => {
-      return product.videoIds.length;
-    })
-    .map((product) => product.videoIds)
-    .flat();
+    .flatMap(product => product.videoIds)
+    .filter(Boolean);
+
   return (
     <div css={wrapper}>
       <div css={title}>

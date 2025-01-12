@@ -6,49 +6,24 @@ import { productItems, ProductItem } from "@constants/productItems";
 import ProductCard from "../home/ProductCard";
 
 const Products = () => {
-  let targetProducts: ProductItem[] = productItems;
-
-  type category = "all" | "autoMachine" | "experiment" | "inspection" | "robot";
-
-  const [categoryState, setCategory] = useState<category>("all");
-
   const categories = [
     { ja: "すべて", en: "all" },
     { ja: "自動装置", en: "autoMachine" },
     { ja: "実験装置", en: "experiment" },
     { ja: "検査装置", en: "inspection" },
     { ja: "ロボット", en: "robot" },
-  ];
+  ] as const;
 
-  const changeCategory = (e: any) => {
-    setCategory(e.target.value);
+  type Category = typeof categories[number]["en"];
+  const [categoryState, setCategory] = useState<Category>("all");
+
+  const targetProducts = categoryState === "all"
+    ? productItems
+    : productItems.filter(product => product.category === categoryState);
+
+  const changeCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCategory(e.target.value as Category);
   };
-
-  switch (categoryState) {
-    case "all":
-      targetProducts = productItems;
-      break;
-    case "autoMachine":
-      targetProducts = productItems.filter(
-        (product) => product.category === "autoMachine"
-      );
-      break;
-    case "experiment":
-      targetProducts = productItems.filter(
-        (product) => product.category === "experiment"
-      );
-      break;
-    case "inspection":
-      targetProducts = productItems.filter(
-        (product) => product.category === "inspection"
-      );
-      break;
-    case "robot":
-      targetProducts = productItems.filter(
-        (product) => product.category === "robot"
-      );
-      break;
-  }
 
   return (
     <div css={wrapper}>
@@ -64,11 +39,12 @@ const Products = () => {
         </div>
       </div>
       <div css={container}>
-        <form css={categoryWrapper}>
+        <div css={categoryWrapper}>
           {categories?.map((category, index) => (
-            <div css={categoryButton} key={index}>
+            <div css={categoryButton} key={category.en}>
               <input
-                type="checkbox"
+                type="radio"
+                name="productCategory"
                 id={category.en}
                 value={category.en}
                 checked={categoryState === category.en}
@@ -77,13 +53,13 @@ const Products = () => {
               <label htmlFor={category.en}>{category.ja}</label>
             </div>
           ))}
-        </form>
+        </div>
         <div css={productWrapper}>
           <div css={cardWrapper}>
             {targetProducts.map((product: ProductItem, index: number) => {
               return (
                 <ProductCard
-                  key={index}
+                  key={product.pid}
                   pid={product.pid}
                   imageUrl={product.imageUrl.list}
                   title={product.title}
@@ -112,7 +88,7 @@ const categoryButton = css`
     width: 9rem;
     padding: 0.5rem 0;
   }
-  input[type="checkbox"]:checked ~ label {
+  input[type="radio"]:checked ~ label {
     background-color: hsl(240, 70%, 20%);
     color: white;
   }
@@ -130,8 +106,6 @@ const categoryWrapper = css`
   justify-content: center;
   /* justify-items: center; */
   grid-template-columns: repeat(auto-fit, minmax(8rem, 10rem));
-  background-color: whitesmoke;
-  background-color: hsl(240, 5%, 93%);
   background-color: white;
   ${MediaQueries.DESKTOP} {
     row-gap: 2rem;
