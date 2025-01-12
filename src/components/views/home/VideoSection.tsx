@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import VideoCard from "./VideoCard";
 import ReadMore from "../../ui/ReadMoreButton";
-import { ProductItems } from "../../../constants/productItems";
+import { productItems } from "../../../constants/productItems";
 
-const targetVideoIds : string[] = ProductItems
+const targetVideoIds : string[] = productItems
   .filter((product) => {
     switch (product.pid) {
       case "1":

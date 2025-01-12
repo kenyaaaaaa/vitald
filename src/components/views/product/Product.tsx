@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { MediaQueries } from "@styles/mediaQueries";
-import { ProductItems, ProductItem } from "@constants/productItems";
+import { productItems, ProductItem } from "@constants/productItems";
 import Link from "next/link";
 
 const Product = () => {
@@ -10,7 +10,7 @@ const Product = () => {
   const { pid } = router.query;
 
   // SSG時にrouter.queryの戻り値がundefinedになるため、やむを得ずundefinedとのユニオン型にしている
-  const targetProduct: ProductItem | undefined = ProductItems.find((product) => {
+  const targetProduct: ProductItem | undefined = productItems.find((product) => {
     return product.pid === pid;
   });
   return (

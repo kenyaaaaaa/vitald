@@ -2,11 +2,11 @@ import { css } from "@emotion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { MediaQueries } from "@styles/mediaQueries";
-import { ProductItems, ProductItem } from "@constants/productItems";
+import { productItems, ProductItem } from "@constants/productItems";
 import ProductCard from "../home/ProductCard";
 
 const Products = () => {
-  let targetProducts: ProductItem[] = ProductItems;
+  let targetProducts: ProductItem[] = productItems;
 
   type category = "all" | "autoMachine" | "experiment" | "inspection" | "robot";
 
@@ -26,25 +26,25 @@ const Products = () => {
 
   switch (categoryState) {
     case "all":
-      targetProducts = ProductItems;
+      targetProducts = productItems;
       break;
     case "autoMachine":
-      targetProducts = ProductItems.filter(
+      targetProducts = productItems.filter(
         (product) => product.category === "autoMachine"
       );
       break;
     case "experiment":
-      targetProducts = ProductItems.filter(
+      targetProducts = productItems.filter(
         (product) => product.category === "experiment"
       );
       break;
     case "inspection":
-      targetProducts = ProductItems.filter(
+      targetProducts = productItems.filter(
         (product) => product.category === "inspection"
       );
       break;
     case "robot":
-      targetProducts = ProductItems.filter(
+      targetProducts = productItems.filter(
         (product) => product.category === "robot"
       );
       break;

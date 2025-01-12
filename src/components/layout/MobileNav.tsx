@@ -2,7 +2,7 @@ import Image from "next/image";
 import { css } from "@emotion/react";
 import { MediaQueries } from "@styles/mediaQueries";
 import Link from "next/link";
-import { NavItems, NavItem } from "@constants/navItems";
+import { navItems, NavItem } from "@constants/navItems";
 
 const MobileNav = ({ isMobileNavOpen }: { isMobileNavOpen: boolean }) => {
   return (
@@ -14,7 +14,7 @@ const MobileNav = ({ isMobileNavOpen }: { isMobileNavOpen: boolean }) => {
         </a>
       </Link>
       <ul>
-        {NavItems.map((navItem: NavItem, index: number) => {
+        {navItems.map((navItem: NavItem, index: number) => {
           return (
             <li key={index}>
               <Link href={navItem.path}>

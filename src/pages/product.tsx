@@ -1,12 +1,19 @@
 import Layout from "@components/layout/Layout";
 import Products from "@components/views/products/Products";
+import { seoData } from "@constants/seo";
 
-const ProductPage = () => {
+const ProductListPage = () => {
+  const { title, description, jsonLd } = seoData.products;
+  
   return (
-    <Layout>
+    <Layout 
+      pageTitle={title}
+      pageDescription={description}
+      jsonLd={jsonLd}
+    >
       <Products />
     </Layout>
   );
 };
 
-export default ProductPage;
+export default ProductListPage;

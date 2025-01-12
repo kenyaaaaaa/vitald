@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 import { MediaQueries } from "@styles/mediaQueries";
-import { NavItems, NavItem } from "@constants/navItems";
+import { navItems, NavItem } from "@constants/navItems";
 
 type Props = {
   isHomeAndNotScrolledY: boolean;
@@ -11,7 +11,7 @@ const DesktopNav = ({ isHomeAndNotScrolledY }: Props) => {
   return (
     <nav css={nav(isHomeAndNotScrolledY)}>
       <ul>
-        {NavItems.map((navItem: NavItem, index: number) => {
+        {navItems.map((navItem: NavItem, index: number) => {
           return (
             <li key={index}>
               <Link href={navItem.path}>

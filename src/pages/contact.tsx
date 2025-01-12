@@ -1,9 +1,16 @@
 import Layout from "@components/layout/Layout";
 import Contact from "@components/views/contact/Contact";
+import { seoData } from "@constants/seo";
 
 const ContactPage = () => {
+  const { title, description, jsonLd } = seoData.contact;
+  
   return (
-    <Layout showContactInfo={false}>
+    <Layout 
+      pageTitle={title}
+      pageDescription={description}
+      jsonLd={jsonLd}
+    >
       <Contact />
     </Layout>
   );

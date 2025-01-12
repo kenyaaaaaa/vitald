@@ -2,10 +2,10 @@ import { css } from "@emotion/react";
 import Link from "next/link";
 import { MediaQueries } from "@styles/mediaQueries";
 import VideoCard from "../home/VideoCard";
-import { ProductItems } from "@constants/productItems";
+import { productItems } from "@constants/productItems";
 
 const Video = () => {
-  const targetVideoIds = ProductItems
+  const targetVideoIds = productItems
     .filter((product) => {
       return product.videoIds.length;
     })

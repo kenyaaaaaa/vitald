@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import ProductCard from "./ProductCard";
 import ReadMore from "../../ui/ReadMoreButton";
-import { ProductItems, ProductItem } from "../../../constants/productItems";
+import { productItems, ProductItem } from "../../../constants/productItems";
 
-const targetProducts = ProductItems.filter((product) => {
+const targetProducts = productItems.filter((product) => {
   switch (product.pid) {
     case "1":
     case "2":

@@ -1,12 +1,19 @@
 import Layout from "@components/layout/Layout";
-import Faq from "@components/views/faq/Faq";
+import FAQ from "components/views/faq/FAQ";
+import { seoData } from "@constants/seo";
 
-const FaqPage = () => {
+const FAQPage = () => {
+  const { title, description, jsonLd } = seoData.faq;
+  
   return (
-    <Layout>
-      <Faq />
+    <Layout 
+      pageTitle={title}
+      pageDescription={description}
+      jsonLd={jsonLd}
+    >
+      <FAQ />
     </Layout>
   );
 };
 
-export default FaqPage;
+export default FAQPage;

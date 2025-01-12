@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { MediaQueries } from "@styles/mediaQueries";
-import { NavItems, NavItem } from "@constants/navItems";
+import { navItems, NavItem } from "@constants/navItems";
 
 const Footer = () => {
   const router = useRouter();
@@ -17,7 +17,7 @@ const Footer = () => {
         <div css={wrapper}>
           <div>
             <ul>
-              {NavItems.map((navItem: NavItem, index: number) => {
+              {navItems.map((navItem: NavItem, index: number) => {
                 return (
                   <li key={index}>
                     <Link href={navItem.path}>

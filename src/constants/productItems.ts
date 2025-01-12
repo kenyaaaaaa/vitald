@@ -17,7 +17,7 @@ export type ProductItem = {
 // "6yPqWxWPQx4", //精密雲台
 // "y0rd4ctSD-0", //ゆめろぼ
 
-export const ProductItems: ProductItem[] = [
+export const productItems: ProductItem[] = [
   {
     pid: "1",
     imageUrl: { list: "infanoid/list.jpg", detail: "infanoid/detail.jpg" },
