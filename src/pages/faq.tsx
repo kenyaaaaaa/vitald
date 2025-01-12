@@ -1,5 +1,5 @@
 import Layout from "@components/layout/Layout";
-import FAQ from "components/views/faq/FAQ";
+import FAQ from "@components/views/faq/FAQ";
 import { seoData } from "@constants/seo";
 
 const FAQPage = () => {
