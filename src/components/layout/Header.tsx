@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BurgerButton from "../ui/BurgerButton";
 import Logo from "../ui/Logo";
 import { css } from "@emotion/react";
@@ -7,11 +7,14 @@ import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 import { useRouter } from "next/router";
 import { useIsScrolledTop } from "@hooks/useScrollPosition";
+import { useCloseMobileNav } from "@hooks/useCloseMobileNav";
 
 const Header = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const isScrolledTop = useIsScrolledTop();
   const router = useRouter();
+
+  useCloseMobileNav(setIsMobileNavOpen);
 
   const isHomeAndScrolledTop =
     router.pathname === "/" && isScrolledTop;

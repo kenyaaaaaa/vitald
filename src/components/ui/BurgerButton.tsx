@@ -1,6 +1,4 @@
 import { css } from "@emotion/react";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { MediaQueries } from "@styles/mediaQueries";
 
 type Props = {
@@ -9,18 +7,6 @@ type Props = {
 };
 
 const BurgerButton = ({ isMobileNavOpen, setIsMobileNavOpen }: Props) => {
-  const router = useRouter();
-
-  useEffect(() => {
-    const closeMobileNav = () => setIsMobileNavOpen(false);
-    const handleRouteChange = () => {
-      closeMobileNav();
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  },[]);
 
   return (
     <button
